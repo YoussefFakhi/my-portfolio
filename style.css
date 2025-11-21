@@ -391,37 +391,75 @@ article .icon {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  height: auto; /* Adjust height to content */
+  min-height: 70vh; /* Ensure minimum height */
+  margin-bottom: 4rem; /* Add some space at the bottom */
 }
 
+/* Updated container for the form to remove old info styles */
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
-  border-radius: 2rem;
-  border: var(--border-color) 0.1rem solid;
-  background: var(--section-background-color);
+  align-items: center; /* Center vertically if space allows */
   margin: 2rem auto;
-  padding: 0.5rem;
+  padding: 0; /* Remove padding as form will have its own */
+  border: none; /* Remove border as form will have its own */
+  background: none; /* Remove background as form will have its own */
+  max-width: 600px; /* Constrain width for better form presentation */
+  width: 100%;
 }
 
-.contact-info-container {
+/* CONTACT FORM STYLES */
+.contact-form {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 2.5rem; /* Increased padding */
+  border-radius: 1.5rem; /* Slightly larger border-radius */
+  background: var(--section-background-color);
+  border: var(--border-color) 0.1rem solid;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.contact-info-container p {
-  font-size: larger;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-icon {
-  cursor: default;
+.form-group label {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem; /* Increased margin */
+  color: var(--text-color);
+  font-weight: 500; /* Slightly bolder label */
 }
 
-.email-icon {
-  height: 2.5rem;
+.form-group input,
+.form-group textarea {
+  padding: 1rem; /* Increased padding */
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem; /* Slightly larger border-radius */
+  font-family: shabnam, "Poppins", sans-serif;
+  font-size: 1.1rem; /* Slightly larger font size */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3f51b5; /* A more distinct focus color */
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Focus shadow */
+}
+
+.contact-form .btn {
+  align-self: flex-end;
+  margin-top: 1.5rem; /* Increased margin */
+  padding: 0.75rem 2rem; /* Adjusted button padding */
+  font-size: 1.1rem; /* Adjusted button font size */
+  font-weight: 600; /* Bolder button text */
+  border-radius: 0.75rem; /* Matched border-radius */
 }
 
 /* FOOTER SECTION */
@@ -571,14 +609,4 @@ footer p {
 
 .theme-icon:hover {
   transform: scale(1.1);
-}
-
-::selection {
-  background: #999999;
-  color: black;
-}
-
-::-moz-selection { 
-  background: #999999;
-  color: black;
 }
