@@ -39,6 +39,10 @@ function updateThemeIcon(isDarkMode) {
   const newIcon = isDarkMode ? 'assets/sun.png' : 'assets/moon.png';
   if (themeToggle) themeToggle.src = newIcon;
   if (themeToggleMobile) themeToggleMobile.src = newIcon;
+  const globeIcon = document.getElementById('globe-icon');
+  if (globeIcon) {
+    globeIcon.src = isDarkMode ? 'assets/globe_white.png' : 'assets/globe_black.png';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
