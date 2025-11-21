@@ -16,8 +16,37 @@
   padding: 0;
 }
 
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --section-background-color: rgb(250, 250, 250);
+  --border-color: rgb(163, 163, 163);
+  --nav-link-color: #000;
+  --nav-link-hover-color: grey;
+  --btn-text-color: #000;
+  --btn-border-color: rgb(53, 53, 53);
+  --btn-hover-text-color: #fff;
+  --btn-hover-bg-color: rgb(53, 53, 53);
+}
+
 body {
   font-family: shabnam, "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #fff;
+  --section-background-color: #333;
+  --border-color: #555;
+  --nav-link-color: #fff;
+  --nav-link-hover-color: #bbb;
+  --btn-text-color: #fff;
+  --btn-border-color: #fff;
+  --btn-hover-text-color: #000;
+  --btn-hover-bg-color: #fff;
 }
 
 html {
@@ -57,7 +86,7 @@ nav {
 }
 
 a {
-  color: black;
+  color: var(--nav-link-color);
   text-decoration: none;
 }
 
@@ -98,7 +127,7 @@ a:hover {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: var(--text-color);
   transition: all 0.3s ease-in-out;
 }
 
@@ -118,7 +147,7 @@ a:hover {
   padding: 10px;
   text-align: center;
   font-size: 1.5rem;
-  color: black;
+  color: var(--nav-link-color);
 }
 
 .menu-links li {
@@ -288,9 +317,9 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: var(--background-color);
   border-radius: 2rem;
-  border: rgb(163, 163, 163) 0.1rem solid;
+  border: var(--border-color) 0.1rem solid;
   text-align: center;
 }
 
@@ -337,8 +366,8 @@ article .icon {
 }
 
 .color-container {
-  background: rgb(250, 250, 250);
-  border-color: rgb(163, 163, 163);
+  background: var(--section-background-color);
+  border-color: var(--border-color);
 }
 
 .project-img {
@@ -349,12 +378,12 @@ article .icon {
 
 .project-title {
   margin: 1rem;
-  color: black;
+  color: var(--text-color);
 }
 
 .project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+  color: var(--btn-text-color);
+  border-color: var(--border-color);
 }
 
 /* CONTACT */
@@ -369,8 +398,8 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: rgb(163, 163, 163) 0.1rem solid;
-  background: rgb(250, 250, 250);
+  border: var(--border-color) 0.1rem solid;
+  background: var(--section-background-color);
   margin: 2rem auto;
   padding: 0.5rem;
 }
@@ -531,6 +560,17 @@ footer p {
 #hamburger-nav .menu-links li:nth-child(4) { animation-delay: 0.4s; }
 #desktop-nav .nav-items li:nth-child(5),
 #hamburger-nav .menu-links li:nth-child(5) { animation-delay: 0.5s; }
+
+.theme-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.theme-icon:hover {
+  transform: scale(1.1);
+}
 
 ::selection {
   background: #999999;

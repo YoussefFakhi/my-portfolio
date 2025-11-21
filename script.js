@@ -22,6 +22,46 @@ function toggleMenu() {
 }
 
 // ===========================
+// THEME SWITCHER
+// ===========================
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+const body = document.body;
+
+function toggleTheme() {
+  body.classList.toggle('dark-mode');
+  const isDarkMode = body.classList.contains('dark-mode');
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  updateThemeIcon(isDarkMode);
+}
+
+function updateThemeIcon(isDarkMode) {
+  const newIcon = isDarkMode ? 'assets/sun.png' : 'assets/moon.png';
+  if (themeToggle) themeToggle.src = newIcon;
+  if (themeToggleMobile) themeToggleMobile.src = newIcon;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    body.classList.add('dark-mode');
+    updateThemeIcon(true);
+  } else {
+    body.classList.remove('dark-mode');
+    updateThemeIcon(false);
+  }
+
+  // Also apply language translations after DOM content is loaded
+  const savedLang = localStorage.getItem("language") || "en";
+  applyLanguage(savedLang);
+
+  // And reveal elements
+  revealElements();
+});
+
+// ===========================
 // TRANSLATIONS
 // ===========================
 const translations = {
@@ -164,11 +204,6 @@ for (let id in map) {
   document.documentElement.lang = lang;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("language") || "en";
-  applyLanguage(savedLang);
-});
-
 // ===========================
 // REVEAL ON SCROLL
 // ===========================
@@ -186,7 +221,6 @@ function revealElements() {
 }
 
 window.addEventListener("scroll", revealElements);
-document.addEventListener("DOMContentLoaded", revealElements);
 
 // ===========================
 // FOOTER ANIMATION
