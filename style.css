@@ -174,7 +174,7 @@ a:hover {
 section {
   padding-top: 4vh;
   height: 96vh;
-  margin: 0 10rem;
+  margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
 }
@@ -405,7 +405,7 @@ article .icon {
   padding: 0; /* Remove padding as form will have its own */
   border: none; /* Remove border as form will have its own */
   background: none; /* Remove background as form will have its own */
-  max-width: 600px; /* Constrain width for better form presentation */
+  max-width: 700px; /* Constrain width for better form presentation */
   width: 100%;
 }
 
