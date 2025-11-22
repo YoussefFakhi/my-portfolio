@@ -312,10 +312,9 @@ const projectData = {
     github: "https://github.com/abolfazl-shadrouh/modern-ecommerce-template",
     demo: null, // no live demo
     images: [ // Add paths to your project screenshot images here
-      "assets/d1.png", // Example: first image
-      "assets/d2.png", // Example: first image
-      "assets/d3.png", // Example: first image
-      "assets/d4.png", // Example: first image
+      "assets/project-1.png", // Example: first image is the main project image
+      // Add more image paths as needed, e.g.:
+      // "assets/project-1-screenshot-2.png",
       // "assets/project-1-screenshot-3.png",
     ]
   },
@@ -326,10 +325,7 @@ const projectData = {
     github: "https://github.com/abolfazl-shadrouh/cafe-menu",
     demo: "https://abolfazl-shadrouh.github.io/cafe-menu", // add if you have one
     images: [
-      "assets/d1.png", // Example: first image
-      "assets/d2.png", // Example: first image
-      "assets/d3.png", // Example: first image
-      "assets/d4.png", // Example: first image
+      "assets/project-2.png", // Example: first image
       // Add more image paths as needed
       // "assets/project-2-screenshot-2.png",
       // "assets/project-2-screenshot-3.png",
@@ -342,10 +338,9 @@ const projectData = {
     github: "https://github.com/abolfazl-shadrouh/Calculator",
     demo: "https://abolfazl-shadrouh.github.io/Calculator",
     images: [
-      "assets/d1.png", // Example: first image
-      "assets/d2.png", // Example: first image
-      "assets/d3.png", // Example: first image
-      "assets/d4.png", // Example: first image
+      "assets/project-3.png", // Example: first image
+      // Add more image paths as needed
+      // "assets/project-3-screenshot-2.png",
       // "assets/project-3-screenshot-3.png",
     ]
   }
