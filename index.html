@@ -1,231 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="google-site-verification" content="8yqd0sWCAvC7ZHaGCwJVSe-dNTmLasSHLbM56sCcCFc">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="keywords" content="Abolfazl Shadrouh, Abolfazl, Shadrouh, ابوالفضل شادروح, ابوالفضل, شادروح, abolfazl shadrouh, abolfazl shadrooh, shadrooh">
-  <meta name="description" content="Abolfazl Shadrouh's personal page and portfolio, specifications and documents">
-  <title>Abolfazl Shadrouh</title>
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.11/dist/lenis.css">
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="mediaqueries.css">
+<meta charset="utf-8">
+<meta name="google-site-verification" content="8yqd0sWCAvC7ZHaGCwJVSe-dNTmLasSHLbM56sCcCFc">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="keywords" content="Abolfazl Shadrouh, Abolfazl, Shadrouh, ابوالفضل شادروح, ابوالفضل, شادروح, abolfazl shadrouh, abolfazl shadrooh, shadrooh">
+<meta name="description" content="Abolfazl Shadrouh's personal page and portfolio, specifications and documents">
+<title>Abolfazl Shadrouh</title>
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.11/dist/lenis.css">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mediaqueries.css">
 </head>
 <body>
-  <!-- Desktop Navigation -->
-  <nav id="desktop-nav">
-    <img src="assets/logo1.png" class="logo1" alt="Logo" loading="lazy" decoding="async">
-    <div class="header">
-      <ul class="nav-links nav-items">
-        <li><a href="#about" id="about-fa">About</a></li>
-        <li><a href="#experience" id="experience-fa">Experience</a></li>
-        <li><a href="#projects" id="projects-fa">Projects</a></li>
-        <li><a href="#contact" id="contact-fa">Contact</a></li>
-        <li class="language-dropdown">
-          <img id="globe-icon" src="assets/globe.png" class="globe-icon" alt="Language" onclick="toggleLangMenu()" loading="lazy" decoding="async">
-          <div id="lang-menu" class="lang-menu">
-            <div onclick="setLanguage('en')">EN</div>
-            <div onclick="setLanguage('fa')">FA</div>
-          </div>
-        </li>
-        <li>
-          <img id="theme-toggle" src="assets/moon.png" alt="Theme toggle" class="icon theme-icon" onclick="toggleTheme()">
-        </li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Mobile Navigation -->
-  <nav id="hamburger-nav">
-    <div class="logo"></div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()" id="about-fa-m">About</a></li>
-        <li><a href="#experience" onclick="toggleMenu()" id="experience-fa-m">Experience</a></li>
-        <li><a href="#projects" onclick="toggleMenu()" id="projects-fa-m">Projects</a></li>
-        <li><a href="#contact" onclick="toggleMenu()" id="contact-fa-m">Contact</a></li>
-        <li class="language-mobile">
-          <div onclick="setLanguage('en')">EN</div>
-          <div onclick="setLanguage('fa')">FA</div>
-        </li>
-        <li>
-          <img id="theme-toggle-mobile" src="assets/moon.png" alt="Theme toggle" class="icon theme-icon" onclick="toggleTheme()">
-        </li>
-      </ul>
-    </div>
-  </nav>
+<!-- Loading Spinner -->
+<div id="loading-spinner" class="loading-spinner">
+  <div class="spinner"></div>
+</div>
+<!-- End Loading Spinner -->
 
-  <!-- Profile Section -->
-  <section id="profile">
-    <div class="section__pic-container">
-      <img src="./assets/profile-pic.png" alt="Abolfazl Shadrouh profile picture" loading="lazy" decoding="async">
-    </div>
-    <div class="section__text">
-      <p class="section__text__p1 reveal delay-2" id="intro-p1">Hello, I'm</p>
-      <h1 class="title reveal delay-3" id="intro-title">Abolfazl Shadrouh</h1>
-      <p class="section__text__p2 reveal delay-4" id="intro-p2">Programmer</p>
-      <div class="btn-container reveal delay-5">
-        <button class="btn btn-color-2" onclick="window.open('./assets/abolfazl-shadrouh-resume.pdf')" id="button1-fa">Resume</button>
-        <button class="btn btn-color-1" onclick="location.href='./#contact'" id="button2-fa">Contact Info</button>
-      </div>
-      <!-- <div id="socials-container" class="reveal delay-6">
-        <img src="./assets/telegram.png" alt="Telegram" class="icon" onclick="location.href='https://t.me/abo_l_fa_zl_sh'" loading="lazy" decoding="async">
-        <img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://www.instagram.com/abolfazl_shadrouh'" loading="lazy" decoding="async">
-        <img src="./assets/facebook.png" alt="Facebook" class="icon" onclick="location.href='https://www.facebook.com/abolfazl.shadrooh'" loading="lazy" decoding="async">
-        <img src="./assets/github.png" alt="GitHub" class="icon" onclick="location.href='https://github.com/abolfazl-shadrouh'" loading="Iazy" decoding="async"/>
-      </div>
-    </div> -->
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <p class="section__text__p1 reveal delay-1" id="about-p1">Get To Know More</p>
-    <h1 class="title reveal delay-2" id="about-title">About Me</h1>
-    <div class="section-container">
-      <div class="section__pic-container reveal delay-3">
-        <img src="./assets/qr.png" alt="QR Code" class="about-pic" loading="lazy" decoding="async">
-      </div>
-      <div class="about-details-container">
-        <div class="about-containers">
-          <div class="details-container reveal delay-4">
-            <img src="./assets/experience.png" alt="Experience icon" class="icon" loading="lazy" decoding="async">
-            <h3 id="experience-fa1">Experience</h3>
-            <p id="experience-fa2">4+ years <br>Frontend Development</p>
-          </div>
-          <div class="details-container reveal delay-5">
-            <img src="./assets/education.png" alt="Education icon" class="icon" loading="lazy" decoding="async">
-            <h3 id="education">Education</h3>
-            <p id="education2">degree from Harvard University<br> M.Sc. IT Engineering</p>
-          </div>
-        </div>
-        <div class="text-container reveal delay-6">
-          <p id="about-title1">
-            a web developer and programmer specializing in modern, optimized website design and development. I started my journey in programming in 2022, driven by a strong passion for learning and creating engaging user experiences.
-            My main expertise lies in front-end development using technologies such as HTML, CSS, JavaScript, and frameworks like React.js. I also have experience with back-end development, particularly with languages ​​like PHP or Node.js and databases such as MySQL and MongoDB.
-            In every project, I strive to prioritize user needs and deliver solutions that are not only visually appealing but also technically solid, fast, and scalable.
-            My goal is to build websites that not only work flawlessly but also feel great to use. If you're interested in collaboration, consulting, or project inquiries, feel free to reach out.
-          </p>
-        </div>
-      </div>
-    </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#experience'" loading="lazy" decoding="async">
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience">
-    <p class="section__text__p1 reveal delay-1" id="exp-p1">Explore My</p>
-    <h1 class="title reveal delay-2" id="exp-title">Experience</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        <!-- Frontend -->
-        <div class="details-container reveal delay-3">
-          <h2 class="experience-sub-title" id="experience-fa-sub">Frontend skills</h2>
-          <div class="article-container">
-            <article class="reveal delay-4"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>HTML</h3><p id="experienced1">Experienced</p></div></article>
-            <article class="reveal delay-5"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>CSS</h3><p id="experienced2">Experienced</p></div></article>
-            <article class="reveal delay-6"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>SASS</h3><p id="intermediate-fa">Intermediate</p></div></article>
-            <article class="reveal delay-7"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>JavaScript</h3><p>Basic</p></div></article>
-            <article class="reveal delay-8"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>TypeScript</h3><p>Basic</p></div></article>
-            <article class="reveal delay-9"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Material UI</h3><p>Intermediate</p></div></article>
-          </div>
-        </div>
-        <!-- Backend -->
-        <div class="details-container reveal delay-10">
-          <h2 class="experience-sub-title" id="experience-fa-sub1">Backend skills</h2>
-          <div class="article-container">
-            <article class="reveal delay-11"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>PostgreSQL</h3><p>Basic</p></div></article>
-            <article class="reveal delay-12"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Node JS</h3><p>Intermediate</p></div></article>
-            <article class="reveal delay-13"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>PHP</h3><p>Experienced</p></div></article>
-            <article class="reveal delay-14"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Django</h3><p>Experienced</p></div></article>
-            <article class="reveal delay-15"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Express JS</h3><p>Intermediate</p></div></article>
-            <article class="reveal delay-16"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Git</h3><p>Intermediate</p></div></article>
-          </div>
-        </div>
-      </div>
-    </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-17" onclick="location.href='./#projects'" loading="lazy">
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <p class="section__text__p1 reveal delay-1" id="projects-p1">Browse My Recent</p>
-    <h1 class="title reveal delay-2" id="projects-title">Projects</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        <!-- Project One -->
-        <div class="details-container color-container reveal delay-3">
-          <div class="article-container">
-            <img src="./assets/project-1.png" alt="Project 1" class="project-img" loading="lazy">
-          </div>
-          <h2 class="experience-sub-title project-title reveal delay-4" id="project-1">Project One</h2>
-          <div class="btn-container reveal delay-5">
-            <button class="btn btn-color-2 project-btn" id="view-fa" onclick="location.href='https://github.com/abolfazl-shadrouh/modern-ecommerce-template'">View</button>
-            <button class="btn btn-color-2 project-btn" id="about-fa-a" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu/blob/main/README.md'">About</button>
-          </div>
-        </div>
-        <!-- Project Two -->
-        <div class="details-container color-container reveal delay-6">
-          <div class="article-container">
-            <img src="./assets/project-2.png" alt="Project 2" class="project-img" loading="lazy">
-          </div>
-          <h2 class="experience-sub-title project-title reveal delay-7" id="project-2">Project Two</h2>
-          <div class="btn-container reveal delay-8">
-            <button class="btn btn-color-2 project-btn" id="view-fa1" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu' ">View</button>
-            <button class="btn btn-color-2 project-btn" id="about-fa-a1" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu/blob/main/README.md'">About</button>
-          </div>
-        </div>
-        <!-- Project Three -->
-        <div class="details-container color-container reveal delay-9">
-          <div class="article-container">
-            <img src="./assets/project-3.png" alt="Project 3" class="project-img" loading="lazy">
-          </div>
-          <h2 class="experience-sub-title project-title reveal delay-10" id="project-3">Project Three</h2>
-          <div class="btn-container reveal delay-11">
-            <button class="btn btn-color-2 project-btn" id="view-fa2" onclick="location.href='https://github.com/abolfazl-shadrouh/Calculator'">View</button>
-            <button class="btn btn-color-2 project-btn" id="about-fa-a2" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu/blob/main/README.md'">About</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-12" onclick="location.href='./#contact'" loading="lazy">
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <p class="section__text__p1 reveal delay-1" id="contact-p1">Get in Touch</p>
-    <h1 class="title reveal delay-2" id="contact-title">Contact Me</h1>
-    <div class="contact-info-upper-container">
-      <form action="https://formspree.io/f/mldveqrd" method="POST" class="contact-form">
-        <div class="form-group reveal delay-3">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group reveal delay-4">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="_replyto" required>
-        </div>
-        <div class="form-group reveal delay-5">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-color-1 reveal delay-6">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p id="footer-en" class="copyright">Copyright &#169; 2025 Abolfazl Shadrouh. All Rights Reserved.</p>
-  </footer>
-
-  <script src="script.js" defer></script>
-  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script> 
+<!-- Desktop Navigation -->
+<nav id="desktop-nav">
+<img src="assets/logo1.png" class="logo1" alt="Logo" loading="lazy" decoding="async">
+<div class="header">
+<ul class="nav-links nav-items">
+<li><a href="#about" id="about-fa">About</a></li>
+<li><a href="#experience" id="experience-fa">Experience</a></li>
+<li><a href="#projects" id="projects-fa">Projects</a></li>
+<li><a href="#contact" id="contact-fa">Contact</a></li>
+<li class="language-dropdown">
+<img id="globe-icon" src="assets/globe.png" class="globe-icon" alt="Language" onclick="toggleLangMenu()" loading="lazy" decoding="async">
+<div id="lang-menu" class="lang-menu">
+<div onclick="setLanguage('en')">EN</div>
+<div onclick="setLanguage('fa')">FA</div>
+</div>
+</li>
+<li>
+<img id="theme-toggle" src="assets/moon.png" alt="Theme toggle" class="icon theme-icon" onclick="toggleTheme()">
+</li>
+</ul>
+</div>
+</nav>
+<!-- Mobile Navigation -->
+<nav id="hamburger-nav">
+<div class="logo"></div>
+<div class="hamburger-menu">
+<div class="hamburger-icon" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<ul class="menu-links">
+<li><a href="#about" onclick="toggleMenu()" id="about-fa-m">About</a></li>
+<li><a href="#experience" onclick="toggleMenu()" id="experience-fa-m">Experience</a></li>
+<li><a href="#projects" onclick="toggleMenu()" id="projects-fa-m">Projects</a></li>
+<li><a href="#contact" onclick="toggleMenu()" id="contact-fa-m">Contact</a></li>
+<li class="language-mobile">
+<div onclick="setLanguage('en')">EN</div>
+<div onclick="setLanguage('fa')">FA</div>
+</li>
+<li>
+<img id="theme-toggle-mobile" src="assets/moon.png" alt="Theme toggle" class="icon theme-icon" onclick="toggleTheme()">
+</li>
+</ul>
+</div>
+</nav>
+<!-- Profile Section -->
+<section id="profile">
+<div class="section__pic-container">
+<img src="./assets/profile-pic.png" alt="Abolfazl Shadrouh profile picture" loading="lazy" decoding="async">
+</div>
+<div class="section__text">
+<p class="section__text__p1 reveal delay-2" id="intro-p1">Hello, I'm</p>
+<h1 class="title reveal delay-3" id="intro-title">Abolfazl Shadrouh</h1>
+<p class="section__text__p2 reveal delay-4" id="intro-p2">Programmer</p>
+<div class="btn-container reveal delay-5">
+<button class="btn btn-color-2" onclick="window.open('./assets/abolfazl-shadrouh-resume.pdf')" id="button1-fa">Resume</button>
+<button class="btn btn-color-1" onclick="location.href='./#contact'" id="button2-fa">Contact Info</button>
+</div>
+<div id="socials-container" class="reveal delay-6">
+<img src="./assets/telegram.png" alt="Telegram" class="icon" onclick="location.href='https://t.me/abo_l_fa_zl_sh'" loading="lazy" decoding="async">
+<img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://www.instagram.com/abolfazl_shadrouh'" loading="lazy" decoding="async">
+<img src="./assets/facebook.png" alt="Facebook" class="icon" onclick="location.href='https://www.facebook.com/abolfazl.shadrooh'" loading="lazy" decoding="async">
+<img src="./assets/github.png" alt="GitHub" class="icon" onclick="location.href='https://github.com/abolfazl-shadrouh'" loading="Iazy" decoding="async"/>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about">
+<p class="section__text__p1 reveal delay-1" id="about-p1">Get To Know More</p>
+<h1 class="title reveal delay-2" id="about-title">About Me</h1>
+<div class="section-container">
+<div class="section__pic-container reveal delay-3">
+<img src="./assets/qr.png" alt="QR Code" class="about-pic" loading="lazy" decoding="async">
+</div>
+<div class="about-details-container">
+<div class="about-containers">
+<div class="details-container reveal delay-4">
+<img src="./assets/experience.png" alt="Experience icon" class="icon" loading="lazy" decoding="async">
+<h3 id="experience-fa1">Experience</h3>
+<p id="experience-fa2">4+ years <br>Frontend Development</p>
+</div>
+<div class="details-container reveal delay-5">
+<img src="./assets/education.png" alt="Education icon" class="icon" loading="lazy" decoding="async">
+<h3 id="education">Education</h3>
+<p id="education2">degree from Harvard University<br> [M.Sc](http://m.sc/). IT Engineering</p>
+</div>
+</div>
+<div class="text-container reveal delay-6">
+<p id="about-title1">
+a web developer and programmer specializing in modern, optimized website design and development. I started my journey in programming in 2022, driven by a strong passion for learning and creating engaging user experiences.
+My main expertise lies in front-end development using technologies such as HTML, CSS, JavaScript, and frameworks like React.js. I also have experience with back-end development, particularly with languages like PHP or Node.js and databases such as MySQL and MongoDB.
+In every project, I strive to prioritize user needs and deliver solutions that are not only visually appealing but also technically solid, fast, and scalable.
+My goal is to build websites that not only work flawlessly but also feel great to use. If you're interested in collaboration, consulting, or project inquiries, feel free to reach out.
+</p>
+</div>
+</div>
+</div>
+<img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#experience'" loading="lazy" decoding="async">
+</section>
+<!-- Experience Section -->
+<section id="experience">
+<p class="section__text__p1 reveal delay-1" id="exp-p1">Explore My</p>
+<h1 class="title reveal delay-2" id="exp-title">Experience</h1>
+<div class="experience-details-container">
+<div class="about-containers">
+<!-- Frontend -->
+<div class="details-container reveal delay-3">
+<h2 class="experience-sub-title" id="experience-fa-sub">Frontend skills</h2>
+<div class="article-container">
+<article class="reveal delay-4"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>HTML</h3><p id="experienced1">Experienced</p></div></article>
+<article class="reveal delay-5"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>CSS</h3><p id="experienced2">Experienced</p></div></article>
+<article class="reveal delay-6"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>SASS</h3><p id="intermediate-fa">Intermediate</p></div></article>
+<article class="reveal delay-7"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>JavaScript</h3><p>Basic</p></div></article>
+<article class="reveal delay-8"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>TypeScript</h3><p>Basic</p></div></article>
+<article class="reveal delay-9"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Material UI</h3><p>Intermediate</p></div></article>
+</div>
+</div>
+<!-- Backend -->
+<div class="details-container reveal delay-10">
+<h2 class="experience-sub-title" id="experience-fa-sub1">Backend skills</h2>
+<div class="article-container">
+<article class="reveal delay-11"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>PostgreSQL</h3><p>Basic</p></div></article>
+<article class="reveal delay-12"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Node JS</h3><p>Intermediate</p></div></article>
+<article class="reveal delay-13"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>PHP</h3><p>Experienced</p></div></article>
+<article class="reveal delay-14"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Django</h3><p>Experienced</p></div></article>
+<article class="reveal delay-15"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Express JS</h3><p>Intermediate</p></div></article>
+<article class="reveal delay-16"><img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy"><div><h3>Git</h3><p>Intermediate</p></div></article>
+</div>
+</div>
+</div>
+</div>
+<img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-17" onclick="location.href='./#projects'" loading="lazy">
+</section>
+<!-- Projects Section -->
+<section id="projects">
+<p class="section__text__p1 reveal delay-1" id="projects-p1">Browse My Recent</p>
+<h1 class="title reveal delay-2" id="projects-title">Projects</h1>
+<div class="experience-details-container">
+<div class="about-containers">
+<!-- Project One -->
+<div class="details-container color-container reveal delay-3">
+<div class="article-container">
+<img src="./assets/project-1.png" alt="Project 1" class="project-img" loading="lazy">
+</div>
+<h2 class="experience-sub-title project-title reveal delay-4" id="project-1">Project One</h2>
+<div class="btn-container reveal delay-5">
+<button class="btn btn-color-2 project-btn" id="view-fa" onclick="location.href='https://github.com/abolfazl-shadrouh/modern-ecommerce-template'">View</button>
+<button class="btn btn-color-2 project-btn" id="about-fa-a" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu/blob/main/README.md'">About</button>
+</div>
+</div>
+<!-- Project Two -->
+<div class="details-container color-container reveal delay-6">
+<div class="article-container">
+<img src="./assets/project-2.png" alt="Project 2" class="project-img" loading="lazy">
+</div>
+<h2 class="experience-sub-title project-title reveal delay-7" id="project-2">Project Two</h2>
+<div class="btn-container reveal delay-8">
+<button class="btn btn-color-2 project-btn" id="view-fa1" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu' ">View</button>
+<button class="btn btn-color-2 project-btn" id="about-fa-a1" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu/blob/main/README.md'">About</button>
+</div>
+</div>
+<!-- Project Three -->
+<div class="details-container color-container reveal delay-9">
+<div class="article-container">
+<img src="./assets/project-3.png" alt="Project 3" class="project-img" loading="lazy">
+</div>
+<h2 class="experience-sub-title project-title reveal delay-10" id="project-3">Project Three</h2>
+<div class="btn-container reveal delay-11">
+<button class="btn btn-color-2 project-btn" id="view-fa2" onclick="location.href='https://github.com/abolfazl-shadrouh/Calculator'">View</button>
+<button class="btn btn-color-2 project-btn" id="about-fa-a2" onclick="location.href='https://github.com/abolfazl-shadrouh/cafe-menu/blob/main/README.md'">About</button>
+</div>
+</div>
+</div>
+</div>
+<img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-12" onclick="location.href='./#contact'" loading="lazy">
+</section>
+<!-- Contact Section -->
+<section id="contact">
+<p class="section__text__p1 reveal delay-1" id="contact-p1">Get in Touch</p>
+<h1 class="title reveal delay-2" id="contact-title">Contact Me</h1>
+<div class="contact-info-upper-container">
+<form action="https://formspree.io/f/mldveqrd" method="POST" class="contact-form">
+<div class="form-group reveal delay-3">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group reveal delay-4">
+<label for="email">Email</label>
+<input type="email" id="email" name="_replyto" required>
+</div>
+<div class="form-group reveal delay-5">
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+</div>
+<button type="submit" class="btn btn-color-1 reveal delay-6">Send Message</button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<nav>
+<div class="nav-links-container reveal delay-1">
+<ul class="nav-links">
+<li><a href="#about" id="about-en">About</a></li>
+<li><a href="#experience" id="experience-en">Experience</a></li>
+<li><a href="#projects" id="project-en">Projects</a></li>
+<li><a href="#contact" id="contact-en">Contact</a></li>
+</ul>
+</div>
+</nav>
+<p id="footer-en" class="copyright">Copyright © 2025 Abolfazl Shadrouh. All Rights Reserved.</p>
+</footer>
+<script src="script.js" defer></script>
+<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
 </body>
 </html>

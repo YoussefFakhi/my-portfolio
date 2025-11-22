@@ -36,6 +36,8 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  /* Ensure body is positioned relative for absolute spinner positioning */
+  position: relative;
 }
 
 body.dark-mode {
@@ -69,6 +71,40 @@ p {
 a,
 .btn {
   transition: all 300ms ease;
+}
+
+/* LOADING SPINNER */
+.loading-spinner {
+  position: fixed; /* Cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color); /* Match body background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of everything */
+  transition: opacity 0.5s ease-out; /* Smooth fade out */
+}
+
+.loading-spinner.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Disable interaction during fade out */
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(85, 85, 85, 0.2); /* Light grey border */
+  border-top: 5px solid var(--text-color); /* Darker top border for animation */
+  border-radius: 50%; /* Make it circular */
+  animation: spin 1s linear infinite; /* Apply the spin animation */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* DESKTOP NAV */
@@ -461,8 +497,8 @@ article .icon {
   width: 100%;
   padding: 2.5rem; /* Increased padding */
   border-radius: 1.5rem; /* Slightly larger border-radius */
-  background: var(--section-background-color);
-  border: var(--border-color) 0.1rem solid;
+  background: var(--section-background-color); /* Use section background */
+  border: var(--border-color) 0.1rem solid; /* Add border */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
@@ -485,8 +521,8 @@ article .icon {
   border-radius: 0.75rem; /* Slightly larger border-radius */
   font-family: shabnam, "Poppins", sans-serif;
   font-size: 1.1rem; /* Slightly larger font size */
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--background-color); /* Match theme */
+  color: var(--text-color); /* Match theme */
   transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -504,6 +540,24 @@ article .icon {
   font-size: 1.1rem; /* Adjusted button font size */
   font-weight: 600; /* Bolder button text */
   border-radius: 0.75rem; /* Matched border-radius */
+}
+
+/* Specific styling for the Send Message button */
+.contact-form .btn[type="submit"] {
+  padding: 0.8rem 2.2rem; /* Slightly more padding */
+  font-weight: 600; /* Ensure bold text */
+  border-radius: 0.75rem; /* Match form elements */
+  border: var(--btn-border-color) 0.1rem solid; /* Ensure border */
+  background: none; /* Start with no background */
+  color: var(--btn-text-color); /* Start with default text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+.contact-form .btn[type="submit"]:hover {
+  background-color: var(--btn-hover-bg-color); /* Hover background */
+  color: var(--btn-hover-text-color); /* Hover text color */
+  border-color: var(--btn-hover-bg-color); /* Hover border color */
 }
 
 /* FOOTER SECTION */

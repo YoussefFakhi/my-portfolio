@@ -63,45 +63,6 @@ function updateThemeIcon(isDarkMode) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    body.classList.add('dark-mode');
-    updateThemeIcon(true);
-  } else {
-    body.classList.remove('dark-mode');
-    updateThemeIcon(false);
-  }
-
-  // Apply language translations after DOM content is loaded
-  const savedLang = localStorage.getItem("language") || "en";
-  applyLanguage(savedLang);
-
-  // Reveal elements initially (in case the page loads scrolled)
-  revealElements();
-
-  // Initial check for navbar scroll effect
-  handleNavbarScroll();
-
-  // Initialize Lenis smooth scrolling if the library is loaded
-  if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      lerp: 0.070,
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  } else {
-    console.warn("Lenis library not found. Smooth scrolling will not be active.");
-  }
-});
-
 // ===========================
 // TRANSLATIONS
 // ===========================
@@ -269,6 +230,62 @@ window.addEventListener("load", () => {
   }
 });
 
-// Note: Lenis initialization is now part of DOMContentLoaded to ensure the library is loaded
-// and to avoid conflicts if the script tag order is changed.
-// The initialization code is included in the DOMContentLoaded listener above.
+// ===========================
+// LOADING SPINNER
+// ===========================
+function handleLoadingSpinner() {
+  const spinner = document.getElementById('loading-spinner');
+  if (spinner) {
+    // Add the fade-out class after a short delay to ensure content is ready
+    // Using setTimeout to ensure it happens after DOM is fully loaded and scripts run
+    setTimeout(() => {
+      spinner.classList.add('fade-out');
+      // Optional: Remove the spinner from the DOM after the fade-out animation completes
+      spinner.addEventListener('transitionend', () => {
+        spinner.remove();
+      });
+    }, 500); // Adjust the delay (in ms) if needed, 500ms is usually sufficient
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    body.classList.add('dark-mode');
+    updateThemeIcon(true);
+  } else {
+    body.classList.remove('dark-mode');
+    updateThemeIcon(false);
+  }
+
+  // Apply language translations after DOM content is loaded
+  const savedLang = localStorage.getItem("language") || "en";
+  applyLanguage(savedLang);
+
+  // Reveal elements initially (in case the page loads scrolled)
+  revealElements();
+
+  // Initial check for navbar scroll effect
+  handleNavbarScroll();
+
+  // Initialize Lenis smooth scrolling if the library is loaded
+  if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      lerp: 0.070,
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  } else {
+    console.warn("Lenis library not found. Smooth scrolling will not be active.");
+  }
+
+  // Handle the loading spinner fade-out
+  handleLoadingSpinner();
+});
