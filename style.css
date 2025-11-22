@@ -217,34 +217,27 @@ a:hover {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Style for the open state - increased max-height and added scrolling */
+.menu-links.open {
+  max-height: 500px; /* Increased height */
+  overflow-y: auto; /* Allow scrolling if content exceeds max-height */
+  padding: 10px 0; /* Add padding for better spacing */
 }
 
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 10px; /* Add padding for easier tapping */
   text-align: center;
   font-size: 1.5rem;
   color: var(--nav-link-color);
+  text-decoration: none; /* Remove underline */
 }
 
 .menu-links li {
   list-style: none;
-}
-
-.menu-links.open {
-  max-height: 300px;
-}
-
-.hamburger-icon.open span:first-child {
-  transform: rotate(45deg) translate(10px, 5px);
-}
-
-.hamburger-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-icon.open span:last-child {
-  transform: rotate(-45deg) translate(10px, -5px);
 }
 
 /* SECTIONS */
