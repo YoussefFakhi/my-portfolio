@@ -103,6 +103,18 @@ const translations = {
     project_1: "Project One",
     project_2: "Project Two",
     project_3: "Project Three",
+    // Testimonials Translations
+    testimonials_fa: "Testimonials",
+    testimonials_fa_m: "Testimonials",
+    testimonials_en: "Testimonials",
+    testimonials_p1: "What People Say",
+    testimonials_title: "Testimonials",
+    testimonial_text_1: "Abolfazl is an exceptional developer. His attention to detail and problem-solving skills were crucial to the success of our project. Highly recommended!",
+    testimonial_author_1: "- John Doe, Client",
+    testimonial_text_2: "Working with Abolfazl was a pleasure. He delivered high-quality code on time and was a great team player.",
+    testimonial_author_2: "- Jane Smith, Colleague",
+    testimonial_text_3: "His technical expertise and dedication are impressive. Abolfazl consistently produces excellent results.",
+    testimonial_author_3: "- Bob Johnson, Manager",
   },
   fa: {
     intro_p1: "سلام، اسم من",
@@ -140,6 +152,18 @@ const translations = {
     project_1: "پروژه اول",
     project_2: "پروژه دوم",
     project_3: "پروژه سوم",
+    // Testimonials Translations (Placeholder for Persian)
+    testimonials_fa: "توصیفات",
+    testimonials_fa_m: "توصیفات",
+    testimonials_en: "توصیفات",
+    testimonials_p1: "چه می‌گویند",
+    testimonials_title: "توصیفات",
+    testimonial_text_1: "ابوالفضل یک توسعه‌دهنده بسیار عالی است. توجه به جزئیات و مهارت‌های حل مسئله او برای موفقیت پروژه ما بسیار حیاتی بود. بسیار توصیه می‌شود!",
+    testimonial_author_1: "- جان دو، مشتری",
+    testimonial_text_2: "کار کردن با ابوالفضل خیلی لذت بخش بود. او کد با کیفیت بالا را به موقع تحویل داد و یک همکار عالی بود.",
+    testimonial_author_2: "- جین اسمیت، همکار",
+    testimonial_text_3: "تخصص فنی و تعهد او چشمگیر است. ابوالفضل مداوم نتایج عالی تولید می‌کند.",
+    testimonial_author_3: "- باب جانسون، مدیر",
   }
 };
 
@@ -194,6 +218,18 @@ function applyLanguage(lang) {
     "about-fa-a": t.about_fa_a,
     "about-fa-a1": t.about_fa_a,
     "about-fa-a2": t.about_fa_a,
+    // Add Testimonials mappings
+    "testimonials-fa": t.testimonials_fa,
+    "testimonials-fa-m": t.testimonials_fa_m,
+    "testimonials-en": t.testimonials_en,
+    "testimonials-p1": t.testimonials_p1,
+    "testimonials-title": t.testimonials_title,
+    "testimonial-text-1": t.testimonial_text_1,
+    "testimonial-author-1": t.testimonial_author_1,
+    "testimonial-text-2": t.testimonial_text_2,
+    "testimonial-author-2": t.testimonial_author_2,
+    "testimonial-text-3": t.testimonial_text_3,
+    "testimonial-author-3": t.testimonial_author_3,
   };
   for (let id in map) {
     const el = document.getElementById(id);
