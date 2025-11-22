@@ -247,6 +247,58 @@ function handleLoadingSpinner() {
     }, 500); // Adjust the delay (in ms) if needed, 500ms is usually sufficient
   }
 }
+// ===========================
+// CONTACT FORM SUBMISSION
+// ===========================
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (!form || !submitBtn) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    // Update button to show loading
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    const object = {};
+    formData.forEach((value, key) => {
+      object[key] = value;
+    });
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mldveqrd', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: json
+      });
+
+      if (response.ok) {
+        // Redirect to your custom success page
+        window.location.href = 'success.html';
+      } else {
+        // Handle error
+        const errorData = await response.json();
+        alert('Oops! Something went wrong. Please try again.\n\nError: ' + (errorData.error || 'Unknown'));
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to send message. Please check your connection and try again.');
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
