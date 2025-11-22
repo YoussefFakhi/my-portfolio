@@ -469,11 +469,11 @@ section {
 
 /* Different colors for different skill levels */
 .skill-bar-fill.basic {
-  background-color: #ff6b6b; /* Red for basic */
+  background-color: #ffd166; /* Yellow for basic - less harsh than red */
 }
 
 .skill-bar-fill.intermediate {
-  background-color: #ffd166; /* Yellow for intermediate */
+  background-color: #ffa500; /* Orange for intermediate */ 
 }
 
 .skill-bar-fill.experienced {
