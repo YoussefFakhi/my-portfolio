@@ -1,6 +1,5 @@
 /* GENERAL */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
 @font-face {
   font-family: shabnam;
   src: url("font/Shabnam.woff2") format("woff2"),
@@ -27,6 +26,9 @@
   --btn-border-color: rgb(53, 53, 53);
   --btn-hover-text-color: #fff;
   --btn-hover-bg-color: rgb(53, 53, 53);
+  /* Define a semi-transparent background for scrolled state */
+  --navbar-scrolled-bg: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  /* You can change the color inside rgba() if needed, e.g., rgba(18, 18, 18, 0.9) for dark */
 }
 
 body {
@@ -47,6 +49,8 @@ body.dark-mode {
   --btn-border-color: #fff;
   --btn-hover-text-color: #000;
   --btn-hover-bg-color: #fff;
+  /* Define a semi-transparent background for scrolled state in dark mode */
+  --navbar-scrolled-bg: rgba(18, 18, 18, 0.9); /* Dark with 90% opacity */
 }
 
 html {
@@ -68,18 +72,35 @@ a,
 }
 
 /* DESKTOP NAV */
-nav,
-.nav-links {
-  display: flex;
-}
-
-nav {
+#desktop-nav {
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's on top */
+  display: flex; /* Keep existing styles */
   justify-content: space-around;
   align-items: center;
-  height: 17vh;
+  height: 10vh; /* Reduced height */
+  /* Initial background: transparent or match body color */
+  background-color: transparent;
+  /* Optional: Add a subtle box-shadow to define the navbar when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /* Initially no shadow */
+  padding: 0 20px; /* Optional: Add padding */
+  box-sizing: border-box; /* Include padding in width */
+  margin: 0; /* Remove any default margin */
+  /* Transition for smooth change when scrolled */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style for navbar when scrolled */
+#desktop-nav.scrolled {
+  background-color: var(--navbar-scrolled-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow when scrolled */
 }
 
 .nav-links {
+  display: flex; /* Keep existing styles */
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
@@ -107,7 +128,27 @@ a:hover {
 
 /* HAMBURGER MENU */
 #hamburger-nav {
-  display: none;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position when shown */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's on top */
+  justify-content: space-between; /* Adjust layout */
+  align-items: center;
+  height: 70px; /* Fixed height */
+  background-color: transparent; /* Initial transparent */
+  padding: 0 20px; /* Add padding */
+  box-sizing: border-box; /* Include padding in width */
+  /* Transition for smooth change when scrolled */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /* Initially no shadow */
+}
+
+/* Style for mobile navbar when scrolled */
+#hamburger-nav.scrolled {
+  background-color: var(--navbar-scrolled-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow when scrolled */
 }
 
 .hamburger-menu {
@@ -177,6 +218,7 @@ section {
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
+  margin-top: 10vh; /* Push content below the fixed desktop navbar */
 }
 
 .section-container {
@@ -190,7 +232,8 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
+  height: 80vh; /* Adjusted based on new navbar height */
+  margin-top: 10vh; /* Ensure profile section starts below navbar */
 }
 
 .section__pic-container {
@@ -394,6 +437,7 @@ article .icon {
   height: auto; /* Adjust height to content */
   min-height: 70vh; /* Ensure minimum height */
   margin-bottom: 4rem; /* Add some space at the bottom */
+  margin-top: 10vh; /* Push below navbar */
 }
 
 /* Updated container for the form to remove old info styles */
@@ -466,6 +510,7 @@ article .icon {
 footer {
   height: 26vh;
   margin: 0 1rem;
+  margin-top: 10vh; /* Add space if needed after contact */
 }
 
 footer p {
@@ -575,14 +620,14 @@ footer p {
   transition: opacity 2s ease-in-out, transform 2s ease-in-out;
 }
 
-#desktop-nav, 
+#desktop-nav,
 #hamburger-nav {
   opacity: 0;
   transform: translateY(-20px);
   animation: fadeInUp 1s forwards;
 }
 
-#desktop-nav .nav-items li, 
+#desktop-nav .nav-items li,
 #hamburger-nav .menu-links li {
   opacity: 0;
   transform: translateX(-20px);
@@ -609,4 +654,152 @@ footer p {
 
 .theme-icon:hover {
   transform: scale(1.1);
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1400px) {
+  #profile {
+    height: calc(83vh - 10vh); /* Adjust height considering navbar */
+    margin-bottom: 6rem;
+  }
+  .about-containers {
+    flex-wrap: wrap;
+  }
+  #contact,
+  #projects {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex; /* Show mobile nav */
+  }
+  /* Adjust sections for mobile navbar height */
+  section {
+    margin-top: 70px; /* Adjust based on mobile navbar height */
+  }
+  #profile {
+    margin-top: 70px; /* Adjust based on mobile navbar height */
+    height: calc(100vh - 70px); /* Adjust height */
+  }
+  #contact {
+    margin-top: 70px; /* Adjust based on mobile navbar height */
+  }
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+  #profile,
+  .section-container {
+    display: block;
+  }
+  .arrow {
+    display: none;
+  }
+  section,
+  .section-container {
+    height: fit-content;
+  }
+  section {
+    margin: 0 5%;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
+  }
+  .language-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .language-mobile div {
+    padding: 6px 12px;
+    background-color: #eee;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  .language-mobile div:hover {
+    background-color: #ccc;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #contact,
+  footer {
+    height: 40vh;
+  }
+  #profile {
+    height: calc(83vh - 70px); /* Adjust height considering navbar */
+    margin-bottom: 0;
+  }
+  article {
+    font-size: 1rem;
+  }
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  .contact-info-container {
+    margin: 0;
+  }
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .section__pic-container {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .text-container {
+    text-align: justify;
+  }
+  /* Ensure mobile nav padding is sufficient */
+  #hamburger-nav {
+     height: 60px; /* Slightly smaller for mobile */
+     padding: 0 15px;
+  }
+  .hamburger-icon {
+      height: 20px; /* Slightly smaller icon */
+  }
+  .hamburger-icon span {
+      height: 2px; /* Maintain line thickness */
+  }
+  .menu-links a {
+      font-size: 1.25rem; /* Slightly smaller font for mobile links */
+      padding: 8px; /* Smaller padding for mobile links */
+  }
 }

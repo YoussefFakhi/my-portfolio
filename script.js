@@ -4,7 +4,6 @@
 function toggleLangMenu() {
   document.getElementById('lang-menu')?.classList.toggle('show');
 }
-
 window.addEventListener('click', function(e) {
   if (!e.target.closest('.language-dropdown')) {
     document.getElementById('lang-menu')?.classList.remove('show');
@@ -20,6 +19,25 @@ function toggleMenu() {
   menu.classList.toggle("open");
   icon.classList.toggle("open");
 }
+
+// ===========================
+// NAVBAR SCROLL EFFECT
+// ===========================
+function handleNavbarScroll() {
+  const desktopNav = document.getElementById('desktop-nav');
+  const mobileNav = document.getElementById('hamburger-nav');
+
+  if (window.scrollY > 50) { // Adjust the 50px threshold as needed
+    desktopNav?.classList.add('scrolled');
+    mobileNav?.classList.add('scrolled');
+  } else {
+    desktopNav?.classList.remove('scrolled');
+    mobileNav?.classList.remove('scrolled');
+  }
+}
+
+// Add the scroll event listener
+window.addEventListener('scroll', handleNavbarScroll);
 
 // ===========================
 // THEME SWITCHER
@@ -48,7 +66,7 @@ function updateThemeIcon(isDarkMode) {
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
   if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     body.classList.add('dark-mode');
     updateThemeIcon(true);
@@ -57,12 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
     updateThemeIcon(false);
   }
 
-  // Also apply language translations after DOM content is loaded
+  // Apply language translations after DOM content is loaded
   const savedLang = localStorage.getItem("language") || "en";
   applyLanguage(savedLang);
 
-  // And reveal elements
+  // Reveal elements initially (in case the page loads scrolled)
   revealElements();
+
+  // Initial check for navbar scroll effect
+  handleNavbarScroll();
+
+  // Initialize Lenis smooth scrolling if the library is loaded
+  if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      lerp: 0.070,
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  } else {
+    console.warn("Lenis library not found. Smooth scrolling will not be active.");
+  }
 });
 
 // ===========================
@@ -97,7 +134,7 @@ const translations = {
     experience_fa2: "4+ years Full Stack Developer",
     education: "Education",
     education2: "Programming degree from Harvard University",
-    about_title1: "a web developer and programmer specializing in modern, optimized website design and development. I started my journey in programming in 2022, driven by a strong passion for learning and creating engaging user experiences. My main expertise lies in front-end development using technologies such as HTML, CSS, JavaScript, and frameworks like React.js. I also have experience with back-end development, particularly with languages ​​like PHP or Node.js and databases such as MySQL and MongoDB. In every project, I strive to prioritize user needs and deliver solutions that are not only visually appealing but also technically solid, fast, and scalable. My goal is to build websites that not only work flawlessly but also feel great to use.If you're interested in collaboration, consulting, or project inquiries, feel free to reach out.",
+    about_title1: "a web developer and programmer specializing in modern, optimized website design and development. I started my journey in programming in 2022, driven by a strong passion for learning and creating engaging user experiences. My main expertise lies in front-end development using technologies such as HTML, CSS, JavaScript, and frameworks like React.js. I also have experience with back-end development, particularly with languages like PHP or Node.js and databases such as MySQL and MongoDB. In every project, I strive to prioritize user needs and deliver solutions that are not only visually appealing but also technically solid, fast, and scalable. My goal is to build websites that not only work flawlessly but also feel great to use.If you're interested in collaboration, consulting, or project inquiries, feel free to reach out.",
     experience_fa_sub: "Frontend skills",
     experience_fa_sub1: "Backend skills",
     view_fa: "View",
@@ -153,7 +190,6 @@ function setLanguage(lang) {
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
-
   const map = {
     "intro-p1": t.intro_p1,
     "intro-title": t.intro_title,
@@ -198,12 +234,10 @@ function applyLanguage(lang) {
     "about-fa-a1": t.about_fa_a,
     "about-fa-a2": t.about_fa_a,
   };
-
-for (let id in map) {
+  for (let id in map) {
     const el = document.getElementById(id);
     if (el) el.textContent = map[id];
   }
-
   document.body.classList.toggle("rtl", lang === "fa");
   document.documentElement.lang = lang;
 }
@@ -215,7 +249,6 @@ function revealElements() {
   const reveals = document.querySelectorAll(".reveal");
   const windowHeight = window.innerHeight;
   const elementVisible = 100;
-
   reveals.forEach(el => {
     const elementTop = el.getBoundingClientRect().top;
     if (elementTop < windowHeight - elementVisible) {
@@ -223,7 +256,6 @@ function revealElements() {
     }
   });
 }
-
 window.addEventListener("scroll", revealElements);
 
 // ===========================
@@ -237,14 +269,6 @@ window.addEventListener("load", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", ()=> {
-  const lenis = new Lenis({
-    lerp: 0.070,
-    smoothWheel: true,
-  });
-	function raf(time) {
-		lenis.raf(time);
-		requestAnimationFrame(raf);
-	}
-	requestAnimationFrame(raf);
-});
+// Note: Lenis initialization is now part of DOMContentLoaded to ensure the library is loaded
+// and to avoid conflicts if the script tag order is changed.
+// The initialization code is included in the DOMContentLoaded listener above.
