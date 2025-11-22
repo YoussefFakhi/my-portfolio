@@ -133,8 +133,8 @@ const translations = {
     education: "مدارک",
     education2: "مدرک برنامه نویسی از دانشگاه هاروارد",
     about_title1: "من یک توسعه دهنده وب و برنامه نویس متخصص در طراحی و توسعه وب سایت مدرن و بهینه هستم. من کار خود را در برنامه نویسی از سال 2022 آغاز کردم و سعی کردم با اشتیاق شدید به یادگیری انواع زبان های دنیای برنامه نویسی بپردازم  و یک تجربه بسیار جذاب برای کابران ایجاد کنم. در هر پروژه، من تلاش می‌کنم نیازهای کاربر را اولویت‌بندی کنم و راه‌حل‌هایی ارائه کنم که نه تنها از نظر بصری جذاب باشند، بلکه از نظر فنی قوی، سریع و مقیاس‌پذیر باشند. هدف من ساختن وب سایت هایی است که نه تنها بی عیب و نقص کار می کنند، بلکه استفاده از آنها بسیار آسان و جذاب است. اگر به مشاوره یا درخواست پروژه علاقه مند هستید، تماس بگیرید",
-    experience_fa_sub: "Frontend مهارت‌های",
-    experience_fa_sub1: "Backend مهارت‌های",
+    experience_fa_sub: "Frontend مهURT",
+    experience_fa_sub1: "Backend مهURT",
     view_fa: "مشاهده",
     about_fa_a: "درباره",
     project_1: "پروژه اول",
@@ -247,10 +247,11 @@ function handleLoadingSpinner() {
     }, 500); // Adjust the delay (in ms) if needed, 500ms is usually sufficient
   }
 }
+
 // ===========================
 // CONTACT FORM SUBMISSION
 // ===========================
-document.addEventListener('DOMContentLoaded', () => {
+function handleContactForm() {
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
 
@@ -298,7 +299,171 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = false;
     }
   });
-});
+}
+
+// ===========================
+// PROJECT MODAL & SLIDESHOW
+// ===========================
+const projectData = {
+  1: {
+    title: "Modern E-commerce Template",
+    description: "A responsive and modern e-commerce front-end built with HTML, CSS, and JavaScript. Features include product cards, cart UI, and mobile-first design.",
+    tech: ["HTML5", "CSS3", "JavaScript", "SASS"],
+    github: "https://github.com/abolfazl-shadrouh/modern-ecommerce-template",
+    demo: null, // no live demo
+    images: [ // Add paths to your project screenshot images here
+      "assets/d1.png", // Example: first image
+      "assets/d2.png", // Example: first image
+      "assets/d3.png", // Example: first image
+      "assets/d4.png", // Example: first image
+      // "assets/project-1-screenshot-3.png",
+    ]
+  },
+  2: {
+    title: "Cafe Menu App",
+    description: "A digital menu for cafes with category filtering and responsive layout. Built using React and styled with Material UI.",
+    tech: ["React", "Material UI", "JavaScript", "CSS"],
+    github: "https://github.com/abolfazl-shadrouh/cafe-menu",
+    demo: "https://abolfazl-shadrouh.github.io/cafe-menu", // add if you have one
+    images: [
+      "assets/d1.png", // Example: first image
+      "assets/d2.png", // Example: first image
+      "assets/d3.png", // Example: first image
+      "assets/d4.png", // Example: first image
+      // Add more image paths as needed
+      // "assets/project-2-screenshot-2.png",
+      // "assets/project-2-screenshot-3.png",
+    ]
+  },
+  3: {
+    title: "JavaScript Calculator",
+    description: "A fully functional calculator with support for basic arithmetic operations, built from scratch using vanilla JavaScript.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/abolfazl-shadrouh/Calculator",
+    demo: "https://abolfazl-shadrouh.github.io/Calculator",
+    images: [
+      "assets/d1.png", // Example: first image
+      "assets/d2.png", // Example: first image
+      "assets/d3.png", // Example: first image
+      "assets/d4.png", // Example: first image
+      // "assets/project-3-screenshot-3.png",
+    ]
+  }
+};
+
+// Global variable to hold current slideshow images
+let currentSlideImages = [];
+let currentSlideIndex = 0;
+
+function handleProjectModal() {
+  const modal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-description');
+  const modalTech = document.getElementById('modal-tech');
+  const modalDemoLink = document.getElementById('modal-demo-link');
+  const modalGithubLink = document.getElementById('modal-github-link');
+  const closeBtn = document.querySelector('.close-btn');
+  const slideImg = document.getElementById('slide-img');
+  const slideshowDotsContainer = document.getElementById('slideshow-dots');
+
+  // Function to open modal and populate data
+  function openModal(projectId) {
+    const data = projectData[projectId];
+    if (!data) return;
+
+    modalTitle.textContent = data.title;
+    modalDesc.textContent = data.description;
+    modalTech.innerHTML = `<strong>Technologies:</strong> ${data.tech.join(', ')}`;
+
+    modalGithubLink.href = data.github;
+    modalGithubLink.style.display = 'inline-block';
+
+    if (data.demo) {
+      modalDemoLink.href = data.demo;
+      modalDemoLink.style.display = 'inline-block';
+    } else {
+      modalDemoLink.style.display = 'none';
+    }
+
+    // Set up slideshow
+    currentSlideImages = data.images || [data.images[0] || "assets/project-1.png"]; // Fallback to a default image if no array or empty
+    currentSlideIndex = 0;
+    updateSlide(); // Show the first slide
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+  }
+
+  // Function to update the slideshow image and dots
+  function updateSlide() {
+    if (currentSlideImages.length === 0) return;
+
+    slideImg.src = currentSlideImages[currentSlideIndex];
+    slideImg.alt = `Screenshot of ${projectData[Object.keys(projectData).find(k => projectData[k].images.includes(currentSlideImages[currentSlideIndex]))]?.title || 'Project'}`;
+
+    // Update dots
+    slideshowDotsContainer.innerHTML = '';
+    currentSlideImages.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('slideshow-dot');
+      if (index === currentSlideIndex) {
+        dot.classList.add('active');
+      }
+      dot.addEventListener('click', () => goToSlide(index));
+      slideshowDotsContainer.appendChild(dot);
+    });
+  }
+
+  // Function to change slide
+  window.changeSlide = function(n) {
+    currentSlideIndex += n;
+    if (currentSlideIndex >= currentSlideImages.length) {
+      currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+      currentSlideIndex = currentSlideImages.length - 1;
+    }
+    updateSlide();
+  };
+
+  // Function to go to a specific slide
+  function goToSlide(index) {
+    currentSlideIndex = index;
+    updateSlide();
+  }
+
+  // Event delegation for project buttons
+  document.querySelectorAll('.project-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projectId = btn.getAttribute('data-project');
+      const action = btn.getAttribute('data-action');
+
+      if (action === 'view') {
+        // Redirect to GitHub for 'View' action
+        const githubUrl = projectData[projectId]?.github;
+        if (githubUrl) {
+          window.open(githubUrl, '_blank');
+        }
+      } else if (action === 'about') {
+        // Open modal for 'About' action
+        openModal(projectId);
+      }
+    });
+  });
+
+  // Close modal
+  closeBtn.onclick = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  };
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
@@ -340,4 +505,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle the loading spinner fade-out
   handleLoadingSpinner();
+
+  // Handle contact form submission
+  handleContactForm();
+
+  // Handle project modal and slideshow
+  handleProjectModal();
 });
