@@ -729,6 +729,32 @@ footer p {
   display: block;
 }
 
+/* Language buttons inside mobile menu */
+#hamburger-nav .language-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#hamburger-nav .language-mobile div {
+  padding: 6px 12px;
+  background-color: var(--background-color); /* Use theme background */
+  color: var(--text-color); /* Use theme text color */
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+#hamburger-nav .language-mobile div:hover {
+  background-color: #f0f0f0; /* Use a light hover state, might need adjustment for dark mode */
+}
+
+body.dark-mode #hamburger-nav .language-mobile div:hover {
+  background-color: #333; /* Use a dark hover state for dark mode */
+}
+
 /* MODAL STYLES */
 .modal {
   display: none;
