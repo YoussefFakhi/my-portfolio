@@ -225,6 +225,10 @@ a:hover {
   max-height: 500px; /* Increased height */
   overflow-y: auto; /* Allow scrolling if content exceeds max-height */
   padding: 10px 0; /* Add padding for better spacing */
+  /* Center the list items within the menu container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .menu-links a {
@@ -238,6 +242,9 @@ a:hover {
 
 .menu-links li {
   list-style: none;
+  /* Center individual list items if needed, though align-items: center on parent should handle it */
+  /* width: 100%; */
+  text-align: center; /* Ensure text inside is centered */
 }
 
 /* SECTIONS */
