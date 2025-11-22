@@ -63,8 +63,9 @@ p {
   color: rgb(85, 85, 85);
 }
 
-.logo1 {
-  width: 100px;
+.logo1,
+.logo {
+  width: 100px; /* Apply width to both logo classes */
 }
 
 /* TRANSITION */
@@ -160,6 +161,25 @@ a:hover {
 
 .logo:hover {
   cursor: default;
+}
+
+/* LOGO THEMING */
+/* Default: Show black logo in light mode */
+#logo-desktop {
+  content: url("assets/logo_black.png"); /* Use black logo by default */
+}
+
+#logo-mobile {
+  content: url("assets/logo_white.png"); /* Use white logo by default for mobile context */
+}
+
+/* Dark Mode: Swap logos */
+body.dark-mode #logo-desktop {
+  content: url("assets/logo_white.png"); /* Switch to white logo in dark mode */
+}
+
+body.dark-mode #logo-mobile {
+  content: url("assets/logo_black.png"); /* Switch to black logo in dark mode */
 }
 
 /* HAMBURGER MENU */
@@ -722,7 +742,14 @@ footer p {
 }
 
 .lang-menu div:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Light hover background */
+  color: var(--text-color); /* Ensure text color stays consistent on hover */
+}
+
+/* Add specific dark mode hover styles for the language menu */
+body.dark-mode .lang-menu div:hover {
+  background-color: #333; /* Darker hover background for dark mode */
+  color: var(--text-color); /* Keep text color as defined in dark mode */
 }
 
 .lang-menu.show {
