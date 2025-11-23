@@ -21,36 +21,21 @@ function toggleMenu() {
 }
 
 // ===========================
-// NAVBAR SCROLL EFFECT
-// ===========================
-function handleNavbarScroll() {
-  const desktopNav = document.getElementById('desktop-nav');
-  const mobileNav = document.getElementById('hamburger-nav');
-
-  if (window.scrollY > 50) { // Adjust the 50px threshold as needed
-    desktopNav?.classList.add('scrolled');
-    mobileNav?.classList.add('scrolled');
-  } else {
-    desktopNav?.classList.remove('scrolled');
-    mobileNav?.classList.remove('scrolled');
-  }
-}
-
-// Add the scroll event listener
-window.addEventListener('scroll', handleNavbarScroll);
-
-// ===========================
-// THEME SWITCHER
+// THEME SWITCHER & LOGO HANDLER
 // ===========================
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 const body = document.body;
+// Get references to the logo images
+const desktopLogo = document.getElementById('desktop-logo');
+const hamburgerLogo = document.getElementById('hamburger-logo'); // Reference the new mobile logo ID
 
 function toggleTheme() {
   body.classList.toggle('dark-mode');
   const isDarkMode = body.classList.contains('dark-mode');
   localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   updateThemeIcon(isDarkMode);
+  updateLogo(isDarkMode); // Update logo when theme changes
 }
 
 function updateThemeIcon(isDarkMode) {
@@ -62,6 +47,71 @@ function updateThemeIcon(isDarkMode) {
     globeIcon.src = isDarkMode ? 'assets/globe_white.png' : 'assets/globe_black.png';
   }
 }
+
+// Function to update the logo based on the theme
+function updateLogo(isDarkMode) {
+  const logoSrc = isDarkMode ? 'assets/logo_white.png' : 'assets/logo_black.png';
+  // Update desktop logo
+  if (desktopLogo) {
+    desktopLogo.src = logoSrc;
+  }
+  // Update hamburger logo
+  if (hamburgerLogo) {
+    hamburgerLogo.src = logoSrc;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+  if (isDarkMode) {
+    body.classList.add('dark-mode');
+    updateThemeIcon(true);
+    updateLogo(true); // Set initial logo for dark mode
+  } else {
+    body.classList.remove('dark-mode');
+    updateThemeIcon(false);
+    updateLogo(false); // Set initial logo for light mode
+  }
+
+  // Apply language translations after DOM content is loaded
+  const savedLang = localStorage.getItem("language") || "en";
+  applyLanguage(savedLang);
+
+  // Reveal elements initially (in case the page loads scrolled)
+  revealElements();
+
+  // Initial check for navbar scroll effect
+  handleNavbarScroll();
+
+  // Initialize Lenis smooth scrolling if the library is loaded
+  if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      lerp: 0.070,
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  } else {
+    console.warn("Lenis library not found. Smooth scrolling will not be active.");
+  }
+
+  // Handle the loading spinner fade-out
+  handleLoadingSpinner();
+
+  // Handle contact form submission
+  handleContactForm();
+
+  // Handle project modal and slideshow
+  handleProjectModal();
+});
 
 // ===========================
 // TRANSLATIONS
@@ -285,6 +335,25 @@ function handleLoadingSpinner() {
 }
 
 // ===========================
+// NAVBAR SCROLL EFFECT
+// ===========================
+function handleNavbarScroll() {
+  const desktopNav = document.getElementById('desktop-nav');
+  const mobileNav = document.getElementById('hamburger-nav');
+
+  if (window.scrollY > 50) { // Adjust the 50px threshold as needed
+    desktopNav?.classList.add('scrolled');
+    mobileNav?.classList.add('scrolled');
+  } else {
+    desktopNav?.classList.remove('scrolled');
+    mobileNav?.classList.remove('scrolled');
+  }
+}
+
+// Add the scroll event listener
+window.addEventListener('scroll', handleNavbarScroll);
+
+// ===========================
 // CONTACT FORM SUBMISSION
 // ===========================
 function handleContactForm() {
@@ -494,52 +563,3 @@ function handleProjectModal() {
     }
   };
 }
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    body.classList.add('dark-mode');
-    updateThemeIcon(true);
-  } else {
-    body.classList.remove('dark-mode');
-    updateThemeIcon(false);
-  }
-
-  // Apply language translations after DOM content is loaded
-  const savedLang = localStorage.getItem("language") || "en";
-  applyLanguage(savedLang);
-
-  // Reveal elements initially (in case the page loads scrolled)
-  revealElements();
-
-  // Initial check for navbar scroll effect
-  handleNavbarScroll();
-
-  // Initialize Lenis smooth scrolling if the library is loaded
-  if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      lerp: 0.070,
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  } else {
-    console.warn("Lenis library not found. Smooth scrolling will not be active.");
-  }
-
-  // Handle the loading spinner fade-out
-  handleLoadingSpinner();
-
-  // Handle contact form submission
-  handleContactForm();
-
-  // Handle project modal and slideshow
-  handleProjectModal();
-});
