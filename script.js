@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const translations = {
   en: {
     intro_p1: "Hello, I'm",
-    intro_title: "Abolfazl Shadrouh",
+    intro_title: "Youssef Fakhi",
     intro_p2: "Full Stack Developer",
     about_title: "About Me",
     about_p1: "Get To Know More",
