@@ -111,7 +111,117 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle project modal and slideshow
   handleProjectModal();
+
+  // Initialize active section indicator
+  initActiveSectionIndicator();
 });
+
+// ===========================
+// ACTIVE SECTION INDICATOR
+// ===========================
+let activeSectionIndicator = null;
+
+function initActiveSectionIndicator() {
+  const navLinks = document.querySelectorAll('#desktop-nav .nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  if (navLinks.length === 0 || sections.length === 0) {
+    console.warn("No navigation links or sections found for active indicator.");
+    return;
+  }
+
+  // Create the indicator element
+  activeSectionIndicator = document.createElement('div');
+  activeSectionIndicator.id = 'nav-indicator';
+  activeSectionIndicator.style.position = 'absolute';
+  activeSectionIndicator.style.bottom = '0'; // Position at the bottom of the link
+  activeSectionIndicator.style.height = '2px'; // Thickness of the line
+  activeSectionIndicator.style.width = '0'; // Initial width is 0
+  activeSectionIndicator.style.backgroundColor = getComputedStyle(navLinks[0]).color; // Match link color
+  activeSectionIndicator.style.transition = 'all 0.3s ease'; // Smooth transition
+  activeSectionIndicator.style.zIndex = '1'; // Ensure it's above other elements if needed
+  activeSectionIndicator.style.pointerEvents = 'none'; // Ignore mouse events
+
+  // Append it to the first link's container (or a parent container)
+  // A more robust way is to wrap the links in a container if possible, but for now:
+  // We'll add it to the first link's parent (nav-links container) and position it absolutely
+  const navContainer = document.querySelector('#desktop-nav .nav-links');
+  if (navContainer) {
+    navContainer.style.position = 'relative'; // Ensure parent has relative positioning
+    navContainer.appendChild(activeSectionIndicator);
+  } else {
+    console.error("Navigation container for indicator not found.");
+    return;
+  }
+
+  // Function to update indicator position
+  function updateIndicator(targetLink) {
+    if (!targetLink || !activeSectionIndicator) return;
+
+    const linkRect = targetLink.getBoundingClientRect();
+    const containerRect = navContainer.getBoundingClientRect();
+
+    // Calculate position relative to the container
+    const left = linkRect.left - containerRect.left;
+    const width = linkRect.width;
+
+    activeSectionIndicator.style.left = `${left}px`;
+    activeSectionIndicator.style.width = `${width}px`;
+  }
+
+  // Initial update based on scroll position
+  updateIndicatorForScroll();
+
+  // Listen for scroll events to update the indicator
+  window.addEventListener('scroll', updateIndicatorForScroll);
+
+  // Listen for hash changes (e.g., clicking nav links)
+  window.addEventListener('hashchange', updateIndicatorForScroll);
+
+  // Function called on scroll and hashchange
+  function updateIndicatorForScroll() {
+    let current = '';
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150; // Offset to account for fixed navbar height
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        current = sectionId;
+      }
+    });
+
+    // Find the corresponding link and update indicator
+    navLinks.forEach(link => {
+      link.classList.remove('active-section-link'); // Remove active class from all
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active-section-link');
+        updateIndicator(link);
+      }
+    });
+
+    // If no section matches (e.g., at very top), hide the indicator or reset
+    if (!current) {
+        activeSectionIndicator.style.width = '0';
+        navLinks.forEach(link => link.classList.remove('active-section-link'));
+    }
+  }
+
+  // Also update indicator when clicking a nav link (before smooth scroll)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href').substring(1); // Remove '#'
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        updateIndicator(link);
+        // The scroll listener will handle updates during/after the smooth scroll
+      }
+    });
+  });
+}
+
 
 // ===========================
 // TRANSLATIONS
