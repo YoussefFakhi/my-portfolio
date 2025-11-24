@@ -46,6 +46,8 @@ function updateThemeIcon(isDarkMode) {
   if (globeIcon) {
     globeIcon.src = isDarkMode ? 'assets/globe_white.png' : 'assets/globe_black.png';
   }
+  // Update the indicator color immediately after theme change
+  updateIndicatorColor();
 }
 
 // Function to update the logo based on the theme
@@ -137,7 +139,8 @@ function initActiveSectionIndicator() {
   activeSectionIndicator.style.bottom = '0'; // Position at the bottom of the link
   activeSectionIndicator.style.height = '2px'; // Thickness of the line
   activeSectionIndicator.style.width = '0'; // Initial width is 0
-  activeSectionIndicator.style.backgroundColor = getComputedStyle(navLinks[0]).color; // Match link color
+  // Set initial color based on current theme
+  updateIndicatorColor(); // Call the new function to set the color
   activeSectionIndicator.style.transition = 'all 0.3s ease'; // Smooth transition
   activeSectionIndicator.style.zIndex = '1'; // Ensure it's above other elements if needed
   activeSectionIndicator.style.pointerEvents = 'none'; // Ignore mouse events
@@ -220,6 +223,43 @@ function initActiveSectionIndicator() {
       }
     });
   });
+}
+
+// New helper function to update the indicator's color based on theme
+function updateIndicatorColor() {
+  if (!activeSectionIndicator) return;
+
+  // Determine color based on current theme state
+  const isDarkMode = body.classList.contains('dark-mode');
+  // Use a theme-appropriate color. You can use CSS variables if defined.
+  // For example, using --btn-hover-bg-color or a specific indicator color variable.
+  // Here, we'll derive it from the link color or use a consistent theme color.
+  // This logic should match how you determine the link color in your CSS for active states.
+  // For now, let's use a common approach: use the default link color or a theme accent.
+  // You might want to define specific colors in your CSS variables and read them here.
+  // Example using a potential CSS variable (ensure it's defined in :root and .dark-mode):
+  // activeSectionIndicator.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--active-indicator-color');
+  // Or, derive from the link color directly:
+  const linkElements = document.querySelectorAll('#desktop-nav .nav-links a');
+  if (linkElements.length > 0) {
+    // Get the color of the first link as a base, this will reflect the current theme
+    const currentLinkColor = getComputedStyle(linkElements[0]).color;
+    // You could also define specific colors for light/dark modes here if needed,
+    // but deriving from the link color is often sufficient and consistent.
+    // For example, you might want the indicator to match the hover color or active link color.
+    // For simplicity and consistency, using the current link color or a theme variable is good.
+    // Let's use a consistent color derived from the theme, for example, the button hover color:
+    // Check your CSS variables for the appropriate color to use.
+    // If your CSS variables for text/link color are --nav-link-color, you can use that.
+    // In your CSS, --nav-link-color changes with the theme.
+    // Read the current value of --nav-link-color:
+    const currentThemeLinkColor = getComputedStyle(body).getPropertyValue('--nav-link-color').trim();
+    // Use the theme's link color for the indicator
+    activeSectionIndicator.style.backgroundColor = currentThemeLinkColor;
+  } else {
+    // Fallback color if links are not found
+    activeSectionIndicator.style.backgroundColor = isDarkMode ? '#fff' : '#000';
+  }
 }
 
 
