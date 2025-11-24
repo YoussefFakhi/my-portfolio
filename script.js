@@ -467,6 +467,7 @@ window.addEventListener('scroll', handleNavbarScroll);
 function handleContactForm() {
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
+  const inquiryTypeSelect = document.getElementById('inquiry-type'); // Get the new select element
 
   if (!form || !submitBtn) return;
 
@@ -478,11 +479,23 @@ function handleContactForm() {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
+    // Prepare form data object
     const formData = new FormData(form);
     const object = {};
     formData.forEach((value, key) => {
       object[key] = value;
     });
+
+    // Optional: Format the inquiry type for better readability in the email
+    if (object.inquiry_type) {
+      const typeMap = {
+        'project': 'Project Inquiry',
+        'job': 'Job Opportunity',
+        'general': 'General Question'
+      };
+      object.inquiry_type = typeMap[object.inquiry_type] || object.inquiry_type; // Use mapping or fallback to original value
+    }
+
     const json = JSON.stringify(object);
 
     try {

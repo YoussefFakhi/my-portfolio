@@ -608,6 +608,27 @@ section {
   border-color: #3f51b5;
   box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
 }
+/* Add this inside your existing CSS file if needed for specific select styling */
+.form-group select {
+  /* Inherits padding, border, font-family, font-size from .form-group input/textarea */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1rem; /* Match input/textarea padding */
+  font-family: shabnam, "Poppins", sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensure it fills the container width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #3f51b5; /* Match focus color of input/textarea */
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+}
 
 .contact-form .btn[type="submit"] {
   align-self: flex-end;
