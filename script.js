@@ -123,97 +123,97 @@ const translations = {
     intro_p2: "Full Stack Developer",
     about_title: "About Me",
     about_p1: "Get To Know More",
-    exp_title: "Experience",
+    exp_title: "Skills",
     exp_p1: "Explore My",
     projects_title: "Projects",
     projects_p1: "Browse My Recent",
     contact_title: "Contact Me",
     contact_p1: "Get in Touch",
-    footer_en: "Copyright © 2025 Abolfazl Shadrouh. All Rights Reserved.",
+    footer_en: "Copyright © 2025 Youssef Fakhi. All Rights Reserved.",
     about_en: "About",
     about_fa: "About",
     about_fa_m: "About",
-    experience_fa: "Experience",
+    experience_fa: "Skills",
     projects_fa: "Projects",
     contact_fa: "Contact",
     button1_fa: "Resume",
-    button2_fa: "Contact Info",
-    experience_fa_m: "Experience",
+    button2_fa: "Contact Me",
+    experience_fa_m: "Skills",
     projects_fa_m: "Projects",
     contact_fa_m: "Contact",
     experience_fa1: "Experience",
-    experience_fa2: "4+ years Full Stack Developer",
+    experience_fa2: "5+ months<br>Full Stack Development",
     education: "Education",
-    education2: "Programming degree from Harvard University",
-    about_title1: "a web developer and programmer specializing in modern, optimized website design and development. I started my journey in programming in 2022, driven by a strong passion for learning and creating engaging user experiences. My main expertise lies in front-end development using technologies such as HTML, CSS, JavaScript, and frameworks like React.js. I also have experience with back-end development, particularly with languages like PHP or Node.js and databases such as MySQL and MongoDB. In every project, I strive to prioritize user needs and deliver solutions that are not only visually appealing but also technically solid, fast, and scalable. My goal is to build websites that not only work flawlessly but also feel great to use.If you're interested in collaboration, consulting, or project inquiries, feel free to reach out.",
-    experience_fa_sub: "Frontend skills",
-    experience_fa_sub1: "Backend skills",
+    education2: "Bac+2 in IT<br>Digital development – Full-stack web option",
+    about_title1: "My expertise spans both front-end and back-end development. On the front end, I work with HTML, CSS, JavaScript, and React.js to create fast, responsive, and intuitive user interfaces. On the back end, I build solid server-side functionality using Node.js, Express, and databases like MongoDB. I enjoy designing complete solutions from UI/UX flow to API structure with a strong focus on performance and reliability.\n\nI approach each project with a practical and user-centered mindset: understanding needs, improving experience, and delivering results that are visually appealing, technically strong, and scalable.\n\nMy goal is to grow as a specialized full-stack developer and contribute to impactful projects, whether in professional companies or collaborative environments. If you’re interested in working together or discussing a project, feel free to reach out.",
+    experience_fa_sub: "Frontend",
+    experience_fa_sub1: "Backend",
     view_fa: "View",
     about_fa_a: "About",
-    project_1: "Project One",
-    project_2: "Project Two",
-    project_3: "Project Three",
+    project_1: "Modern E-commerce Template",
+    project_2: "Cafe Menu App",
+    project_3: "JavaScript Calculator",
     // Testimonials Translations
     testimonials_fa: "Testimonials",
     testimonials_fa_m: "Testimonials",
     testimonials_en: "Testimonials",
     testimonials_p1: "What People Say",
     testimonials_title: "Testimonials",
-    testimonial_text_1: "Abolfazl is an exceptional developer. His attention to detail and problem-solving skills were crucial to the success of our project. Highly recommended!",
-    testimonial_author_1: "- John Doe, Client",
-    testimonial_text_2: "Working with Abolfazl was a pleasure. He delivered high-quality code on time and was a great team player.",
-    testimonial_author_2: "- Jane Smith, Colleague",
-    testimonial_text_3: "His technical expertise and dedication are impressive. Abolfazl consistently produces excellent results.",
-    testimonial_author_3: "- Bob Johnson, Manager",
+    testimonial_text_1: "Youssef is an exceptional developer. His attention to detail and problem-solving skills were crucial to the success of our project. Highly recommended!",
+    testimonial_author_1: "- Client",
+    testimonial_text_2: "Working with Youssef was a pleasure. He delivered high-quality code on time and was a great team player.",
+    testimonial_author_2: "- Colleague",
+    testimonial_text_3: "His technical expertise and dedication are impressive. Youssef consistently produces excellent results.",
+    testimonial_author_3: "- Manager",
   },
-  fa: {
-    intro_p1: "سلام، اسم من",
-    intro_title: "ابوالفضل شادروح",
-    intro_p2: "برنامه‌نویس وبسایت",
-    about_title: "درباره من",
-    about_p1: "بیشتر آشنا شوید",
-    exp_title: "تجربه‌ها",
-    exp_p1: "تجربه‌های من",
-    projects_title: "پروژه‌ها",
-    projects_p1: "پروژه‌های اخیر من",
-    contact_title: "ارتباط با من",
-    contact_p1: "در تماس باشید",
-    footer_en: "کپی رایت © 2025 تمام حقوق مادی و معنوی این وب سایت نیز متعلق به ابوالفضل شادروح می باشد",
-    about_en: "درباره",
-    about_fa: "درباره",
-    about_fa_m: "درباره",
-    experience_fa: "تجربه‌ها",
-    projects_fa: "پروژه‌ها",
-    contact_fa: "تماس",
-    button1_fa: "رزومه",
-    button2_fa: "اطلاعات تماس",
-    experience_fa_m: "تجربه‌ها",
-    projects_fa_m: "پروژه‌ها",
-    contact_fa_m: "تماس",
-    experience_fa1: "تجربه",
-    experience_fa2: "بیش از 4 سال طراحی و توسعه وب",
-    education: "مدارک",
-    education2: "مدرک برنامه نویسی از دانشگاه هاروارد",
-    about_title1: "من یک توسعه دهنده وب و برنامه نویس متخصص در طراحی و توسعه وب سایت مدرن و بهینه هستم. من کار خود را در برنامه نویسی از سال 2022 آغاز کردم و سعی کردم با اشتیاق شدید به یادگیری انواع زبان های دنیای برنامه نویسی بپردازم  و یک تجربه بسیار جذاب برای کابران ایجاد کنم. در هر پروژه، من تلاش می‌کنم نیازهای کاربر را اولویت‌بندی کنم و راه‌حل‌هایی ارائه کنم که نه تنها از نظر بصری جذاب باشند، بلکه از نظر فنی قوی، سریع و مقیاس‌پذیر باشند. هدف من ساختن وب سایت هایی است که نه تنها بی عیب و نقص کار می کنند، بلکه استفاده از آنها بسیار آسان و جذاب است. اگر به مشاوره یا درخواست پروژه علاقه مند هستید، تماس بگیرید",
-    experience_fa_sub: "Frontend مهURT",
-    experience_fa_sub1: "Backend مهURT",
-    view_fa: "مشاهده",
-    about_fa_a: "درباره",
-    project_1: "پروژه اول",
-    project_2: "پروژه دوم",
-    project_3: "پروژه سوم",
-    // Testimonials Translations (Placeholder for Persian)
-    testimonials_fa: "توصیفات",
-    testimonials_fa_m: "توصیفات",
-    testimonials_en: "توصیفات",
-    testimonials_p1: "چه می‌گویند",
-    testimonials_title: "توصیفات",
-    testimonial_text_1: "ابوالفضل یک توسعه‌دهنده بسیار عالی است. توجه به جزئیات و مهارت‌های حل مسئله او برای موفقیت پروژه ما بسیار حیاتی بود. بسیار توصیه می‌شود!",
-    testimonial_author_1: "- جان دو، مشتری",
-    testimonial_text_2: "کار کردن با ابوالفضل خیلی لذت بخش بود. او کد با کیفیت بالا را به موقع تحویل داد و یک همکار عالی بود.",
-    testimonial_author_2: "- جین اسمیت، همکار",
-    testimonial_text_3: "تخصص فنی و تعهد او چشمگیر است. ابوالفضل مداوم نتایج عالی تولید می‌کند.",
-    testimonial_author_3: "- باب جانسون، مدیر",
+  fr: { // French Translations
+    intro_p1: "Bonjour, je suis",
+    intro_title: "Youssef Fakhi",
+    intro_p2: "Développeur Full Stack",
+    about_title: "À propos de moi",
+    about_p1: "En savoir plus",
+    exp_title: "Compétences",
+    exp_p1: "Découvrez mes",
+    projects_title: "Projets",
+    projects_p1: "Parcourir mes récents",
+    contact_title: "Contactez-moi",
+    contact_p1: "Entrer en contact",
+    footer_en: "Copyright © 2025 Youssef Fakhi. Tous droits réservés.",
+    about_en: "À propos",
+    about_fa: "À propos",
+    about_fa_m: "À propos",
+    experience_fa: "Compétences",
+    projects_fa: "Projets",
+    contact_fa: "Contact",
+    button1_fa: "CV",
+    button2_fa: "Contactez-moi",
+    experience_fa_m: "Compétences",
+    projects_fa_m: "Projets",
+    contact_fa_m: "Contact",
+    experience_fa1: "Expérience",
+    experience_fa2: "5+ mois<br>Développement Full Stack",
+    education: "Éducation",
+    education2: `Bac+2 en Informatique<br>Développement numérique – Option web full-stack`,
+    about_title1: "Mon expertise s'étend au développement front-end et back-end. Côté front-end, je travaille avec HTML, CSS, JavaScript et React.js pour créer des interfaces utilisateur rapides, réactives et intuitives. Côté back-end, je construis des fonctionnalités serveur solides en utilisant Node.js, Express et des bases de données comme MongoDB. J'aime concevoir des solutions complètes, de l'UX/UI au schéma de l'API, avec un fort accent sur les performances et la fiabilité.\n\nJ'aborde chaque projet avec un esprit pratique et centré sur l'utilisateur : comprendre les besoins, améliorer l'expérience et livrer des résultats visuellement attrayants, techniquement solides et évolutifs.\n\nMon objectif est de me perfectionner en tant que développeur full-stack spécialisé et de contribuer à des projets impactants, que ce soit dans des entreprises professionnelles ou des environnements collaboratifs. Si vous souhaitez travailler ensemble ou discuter d'un projet, n'hésitez pas à me contacter.",
+    experience_fa_sub: "Frontend",
+    experience_fa_sub1: "Backend",
+    view_fa: "Voir",
+    about_fa_a: "À propos",
+    project_1: "Modèle E-commerce Moderne",
+    project_2: "Application Menu de Café",
+    project_3: "Calculatrice JavaScript",
+    // Testimonials Translations
+    testimonials_fa: "Témoignages",
+    testimonials_fa_m: "Témoignages",
+    testimonials_en: "Témoignages",
+    testimonials_p1: "Ce que disent les gens",
+    testimonials_title: "Témoignages",
+    testimonial_text_1: "Youssef est un développeur exceptionnel. Son attention aux détails et ses compétences en résolution de problèmes ont été cruciales pour le succès de notre projet. Fortement recommandé !",
+    testimonial_author_1: "- Client",
+    testimonial_text_2: "Travailler avec Youssef a été un plaisir. Il a livré un code de haute qualité à temps et a été un excellent membre d'équipe.",
+    testimonial_author_2: "- Colleague",
+    testimonial_text_3: "Son expertise technique et son dévouement sont impressionnants. Youssef produit constamment des résultats excellents.",
+    testimonial_author_3: "- Manager",
   }
 };
 
@@ -225,6 +225,8 @@ function setLanguage(lang) {
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
+
+  // Define the mapping for all elements
   const map = {
     "intro-p1": t.intro_p1,
     "intro-title": t.intro_title,
@@ -250,25 +252,8 @@ function applyLanguage(lang) {
     "projects-fa-m": t.projects_fa_m,
     "contact-fa-m": t.contact_fa_m,
     "experience-fa1": t.experience_fa1,
-    "experience-fa2": t.experience_fa2,
     "education": t.education,
-    "education2": t.education2,
-    "about-title1": t.about_title1,
-    "experience-fa-sub": t.experience_fa_sub,
-    "experience-fa-sub1": t.experience_fa_sub1,
-    "experience-en": t.experience_fa,
-    "project-en": t.projects_fa,
-    "contact-en": t.contact_fa,
-    "project-1": t.project_1,
-    "project-2": t.project_2,
-    "project-3": t.project_3,
-    "view-fa": t.view_fa,
-    "view-fa1": t.view_fa,
-    "view-fa2": t.view_fa,
-    "about-fa-a": t.about_fa_a,
-    "about-fa-a1": t.about_fa_a,
-    "about-fa-a2": t.about_fa_a,
-    // Add Testimonials mappings
+    // Testimonials Translations
     "testimonials-fa": t.testimonials_fa,
     "testimonials-fa-m": t.testimonials_fa_m,
     "testimonials-en": t.testimonials_en,
@@ -281,11 +266,24 @@ function applyLanguage(lang) {
     "testimonial-text-3": t.testimonial_text_3,
     "testimonial-author-3": t.testimonial_author_3,
   };
+
+  // Define elements that need HTML interpretation (contain <br>)
+  const htmlElements = new Set(["experience-fa2", "education2"]);
+
   for (let id in map) {
     const el = document.getElementById(id);
-    if (el) el.textContent = map[id];
+    if (el) {
+      if (htmlElements.has(id)) {
+        // Use innerHTML for elements containing <br>
+        el.innerHTML = map[id];
+      } else {
+        // Use textContent for plain text elements
+        el.textContent = map[id];
+      }
+    }
   }
-  document.body.classList.toggle("rtl", lang === "fa");
+
+  // Removed RTL class toggle as French is LTR
   document.documentElement.lang = lang;
 }
 
@@ -378,7 +376,7 @@ function handleContactForm() {
     const json = JSON.stringify(object);
 
     try {
-      const response = await fetch('https://formspree.io/f/mldveqrd', {
+      const response = await fetch('https://formspree.io/f/mldveqrd', { // Ensure this URL is correct
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -428,7 +426,7 @@ const projectData = {
     description: "A digital menu for cafes with category filtering and responsive layout. Built using React and styled with Material UI.",
     tech: ["React", "Material UI", "JavaScript", "CSS"],
     github: "https://github.com/abolfazl-shadrouh/cafe-menu",
-    demo: "https://abolfazl-shadrouh.github.io/cafe-menu", // add if you have one
+    demo: "https://abolfazl-shadrouh.github.io/cafe-menu",
     images: [
       "assets/project-2.png", // Example: first image
       // Add more image paths as needed
