@@ -296,7 +296,7 @@ section {
 }
 .btn-color-1,
 .btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
+  border: rgba(0, 0, 0, 0.562) 0.1rem solid;
 }
 .btn-color-1:hover,
 .btn-color-2:hover {
@@ -304,11 +304,11 @@ section {
 }
 .btn-color-1,
 .btn-color-2:hover {
-  background: rgb(53, 53, 53);
+  background: rgb(41, 41, 41);
   color: white;
 }
 .btn-color-1:hover {
-  background: rgb(0, 0, 0);
+  background: rgb(12, 12, 12);
 }
 .btn-color-2 {
   background: none;
@@ -535,6 +535,13 @@ section {
   display: flex;
   flex-direction: column;
 }
+
+#contact-form .btn-color-1 {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
 .form-group label {
   font-size: 1.2rem;
   margin-bottom: 0.75rem; /* Increased margin */
