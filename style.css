@@ -12,7 +12,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Added for consistency */
 }
 :root {
   --background-color: #fff;
@@ -25,7 +25,9 @@
   --btn-border-color: rgb(53, 53, 53);
   --btn-hover-text-color: #fff;
   --btn-hover-bg-color: rgb(53, 53, 53);
-  --navbar-scrolled-bg: rgba(255, 255, 255, 0.9);
+  /* Define a semi-transparent background for scrolled state */
+  --navbar-scrolled-bg: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  /* You can change the color inside rgba() if needed, e.g., rgba(18, 18, 18, 0.9) for dark */
   --focus-shadow-color: rgba(0, 0, 0, 0.1);
 }
 body {
@@ -33,6 +35,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  /* Ensure body is positioned relative for absolute spinner positioning */
   position: relative;
 }
 body.dark-mode {
@@ -46,8 +49,9 @@ body.dark-mode {
   --btn-border-color: #fff;
   --btn-hover-text-color: #000;
   --btn-hover-bg-color: #fff;
-  --navbar-scrolled-bg: rgba(18, 18, 18, 0.9);
-  --focus-shadow-color: rgba(255, 255, 255, 0.1);
+  /* Define a semi-transparent background for scrolled state in dark mode */
+  --navbar-scrolled-bg: rgba(18, 18, 18, 0.9); /* Dark with 90% opacity */
+  --focus-shadow-color: rgba(255, 255, 255, 0.1); /* Subtle shadow for dark mode focus */
 }
 html {
   scroll-behavior: smooth;
@@ -65,29 +69,29 @@ a,
 }
 /* LOADING SPINNER */
 .loading-spinner {
-  position: fixed;
+  position: fixed; /* Cover the entire viewport */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--background-color);
+  background-color: var(--background-color); /* Match body background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease-out;
+  z-index: 9999; /* Ensure it's on top of everything */
+  transition: opacity 0.5s ease-out; /* Smooth fade out */
 }
 .loading-spinner.fade-out {
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none; /* Disable interaction during fade out */
 }
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid rgba(85, 85, 85, 0.2);
-  border-top: 5px solid var(--text-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+  border: 5px solid rgba(85, 85, 85, 0.2); /* Light grey border */
+  border-top: 5px solid var(--text-color); /* Darker top border for animation */
+  border-radius: 50%; /* Make it circular */
+  animation: spin 1s linear infinite; /* Apply the spin animation */
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -95,28 +99,32 @@ a,
 }
 /* DESKTOP NAV */
 #desktop-nav {
-  position: fixed;
+  position: fixed; /* Fixed position */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  display: flex;
+  z-index: 1000; /* Ensure it's on top */
+  display: flex; /* Keep existing styles */
   justify-content: space-around;
   align-items: center;
-  height: 10vh;
+  height: 10vh; /* Reduced height */
+  /* Initial background: transparent or match body color */
   background-color: transparent;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-  padding: 0 20px;
-  box-sizing: border-box;
-  margin: 0;
+  /* Optional: Add a subtle box-shadow to define the navbar when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /* Initially no shadow */
+  padding: 0 20px; /* Optional: Add padding */
+  box-sizing: border-box; /* Include padding in width */
+  margin: 0; /* Remove any default margin */
+  /* Transition for smooth change when scrolled */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+/* Style for navbar when scrolled */
 #desktop-nav.scrolled {
   background-color: var(--navbar-scrolled-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow when scrolled */
 }
 .nav-links {
-  display: flex;
+  display: flex; /* Keep existing styles */
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
@@ -139,24 +147,26 @@ a:hover {
 }
 /* HAMBURGER MENU */
 #hamburger-nav {
-  display: none;
-  position: fixed;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position when shown */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  justify-content: space-between;
+  z-index: 1000; /* Ensure it's on top */
+  justify-content: space-between; /* Adjust layout */
   align-items: center;
-  height: 70px;
-  background-color: transparent;
-  padding: 0 20px;
-  box-sizing: border-box;
+  height: 70px; /* Fixed height */
+  background-color: transparent; /* Initial transparent */
+  padding: 0 20px; /* Add padding */
+  box-sizing: border-box; /* Include padding in width */
+  /* Transition for smooth change when scrolled */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /* Initially no shadow */
 }
+/* Style for mobile navbar when scrolled */
 #hamburger-nav.scrolled {
   background-color: var(--navbar-scrolled-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow when scrolled */
 }
 .hamburger-menu {
   position: relative;
@@ -185,27 +195,31 @@ a:hover {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it appears above other content */
 }
+/* Style for the open state - increased max-height and added scrolling */
 .menu-links.open {
-  max-height: 500px;
-  overflow-y: auto;
-  padding: 10px 0;
+  max-height: 500px; /* Increased height */
+  overflow-y: auto; /* Allow scrolling if content exceeds max-height */
+  padding: 10px 0; /* Add padding for better spacing */
+  /* Center the list items within the menu container */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 10px; /* Add padding for easier tapping */
   text-align: center;
   font-size: 1.5rem;
   color: var(--nav-link-color);
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
 }
 .menu-links li {
   list-style: none;
-  text-align: center;
+  /* Center individual list items if needed, though align-items: center on parent should handle it */
+  /* width: 100%; */
+  text-align: center; /* Ensure text inside is centered */
 }
 /* SECTIONS */
 section {
@@ -214,7 +228,7 @@ section {
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
-  margin-top: 10vh;
+  margin-top: 10vh; /* Push content below the fixed desktop navbar */
 }
 .section-container {
   display: flex;
@@ -226,8 +240,8 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
-  margin-top: 10vh;
+  height: 80vh; /* Adjusted based on new navbar height */
+  margin-top: 10vh; /* Ensure profile section starts below navbar */
 }
 .section__pic-container {
   display: flex;
@@ -305,12 +319,14 @@ section {
   color: var(--btn-hover-text-color);
   border-color: var(--btn-hover-bg-color);
 }
+
 /* Override for "Contact Me" button hover in light mode */
 body:not(.dark-mode) .btn-container .btn-color-1:hover {
-  background-color: #000;
+  background-color: #000; /* Use a dark color that contrasts with light bg */
   color: #fff;
   border-color: #000;
 }
+
 /* ABOUT SECTION */
 #about {
   position: relative;
@@ -358,89 +374,62 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   justify-content: center;
   flex-direction: column;
 }
-/* SKILLS VISUALIZATION */
+
+/* SKILLS VISUALIZATION - Updated */
 .skills-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 100%;
+  gap: 1rem; /* Space between skill items */
+  width: 100%; /* Ensure it takes full width of its container */
 }
 .skill-item {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center; /* Align logo and name vertically */
+  gap: 1rem; /* Space between logo and name */
+  padding: 0.5rem 0; /* Add some vertical padding */
 }
-.skill-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.skill-logo {
+  width: 32px; /* Adjust size as needed */
+  height: 32px; /* Adjust size as needed */
+  object-fit: contain; /* Maintain aspect ratio */
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 .skill-name {
   font-weight: 500;
   color: var(--text-color);
+  font-size: 1.1rem; /* Adjust size as needed */
+  flex-grow: 1; /* Allow name to take remaining space */
 }
-.skill-level {
-  font-size: 0.9rem;
-  color: var(--btn-hover-bg-color);
-  font-weight: 500;
-}
-.skill-bar {
-  height: 10px;
-  background-color: var(--section-background-color);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-}
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 5px;
-  width: 0;
-  animation: fillBar 1s ease-out forwards;
-  transition: width 0.5s ease;
-}
-.skill-bar-fill.basic {
-  background-color: #ffd166;
-}
-.skill-bar-fill.intermediate {
-  background-color: #ffa500;
-}
-.skill-bar-fill.experienced {
-  background-color: #06d6a0;
-}
-@keyframes fillBar {
-  from {
-    width: 0;
-  }
-  to {
-    width: var(--target-width, 100%);
-  }
-}
+
 /* TESTIMONIALS SECTION */
 #testimonials {
   position: relative;
 }
 #testimonials .experience-sub-title {
+  /* Reuse existing style if applicable */
   color: rgb(85, 85, 85);
   font-weight: 400;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
 #testimonials .about-containers {
+  /* Reuse existing style for layout */
   gap: 2rem;
   margin: 2rem 0;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 #testimonials .details-container {
+  /* Reuse existing style for container */
   padding: 1.5rem;
   flex: 1;
-  background: var(--section-background-color);
+  background: var(--section-background-color); /* Use section background */
   border-radius: 2rem;
   border: var(--border-color) 0.1rem solid;
-  text-align: left;
-  min-width: 250px;
+  text-align: left; /* Align text to the left */
+  min-width: 250px; /* Minimum width for each testimonial card */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Center content vertically */
 }
 .testimonial-content {
   display: flex;
@@ -448,17 +437,17 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   gap: 1rem;
 }
 .testimonial-content p {
-  margin: 0;
-  font-style: italic;
+  margin: 0; /* Remove default paragraph margin */
+  font-style: italic; /* Italicize the testimonial text */
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.6; /* Improve readability */
 }
 .testimonial-author {
-  align-self: flex-end;
+  align-self: flex-end; /* Align author name to the right */
   font-weight: 500;
-  color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-bg-color); /* Use theme color for author */
 }
-/* ARTICLE CONTAINER */
+/* ARTICLE CONTAINER (for other sections that might still use it) */
 .article-container {
   display: flex;
   flex-wrap: wrap;
@@ -492,64 +481,40 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: auto;
-  min-height: 70vh;
-  margin-bottom: 4rem;
-  margin-top: 10vh;
+  height: auto; /* Adjust height to content */
+  min-height: 70vh; /* Ensure minimum height */
+  margin-bottom: 4rem; /* Add some space at the bottom */
+  margin-top: 10vh; /* Push below navbar */
 }
+/* Updated container for the form to remove old info styles */
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Center vertically if space allows */
   margin: 2rem auto;
-  padding: 0;
-  border: none;
-  background: none;
-  max-width: 700px;
+  padding: 0; /* Remove padding as form will have its own */
+  border: none; /* Remove border as form will have its own */
+  background: none; /* Remove background as form will have its own */
+  max-width: 700px; /* Constrain width for better form presentation */
   width: 100%;
 }
+/* CONTACT FORM STYLES */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  padding: 2.5rem;
-  border-radius: 1.5rem;
-  background: var(--section-background-color);
-  border: var(--border-color) 0.1rem solid;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem; /* Increased padding */
+  border-radius: 1.5rem; /* Slightly larger border-radius */
+  background: var(--section-background-color); /* Use section background */
+  border: var(--border-color) 0.1rem solid; /* Add border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 .form-group {
   display: flex;
   flex-direction: column;
 }
-.form-group label {
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-color);
-  font-weight: 500;
-}
-.form-group input,
-.form-group textarea,
-.form-group select {
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  font-family: shabnam, "Poppins", sans-serif;
-  font-size: 1.1rem;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  outline: none;
-}
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--text-color);
-  box-shadow: 0 0 0 2px var(--focus-shadow-color);
-}
-/* Specific styles for the Send Message button */
+
 #contact-form .btn-color-1 {
   margin-left: auto;
   margin-right: 0;
@@ -557,24 +522,58 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   color: var(--btn-text-color);
   border: 0.1rem solid var(--btn-border-color);
 }
+
 #contact-form .btn-color-1:hover {
   background-color: var(--btn-hover-bg-color);
   color: var(--btn-hover-text-color);
   border-color: var(--btn-hover-bg-color);
 }
-/* Style for the select element */
-.form-group select {
-  cursor: pointer;
-}
-.form-group select option {
-  background-color: var(--section-background-color);
+
+
+.form-group label {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem; /* Increased margin */
   color: var(--text-color);
+  font-weight: 500; /* Slightly bolder label */
+}
+.form-group input,
+.form-group textarea,
+.form-group select { /* Added select to the selector */
+  padding: 1rem; /* Increased padding */
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem; /* Slightly larger border-radius */
+  font-family: shabnam, "Poppins", sans-serif;
+  font-size: 1.1rem; /* Slightly larger font size */
+  background-color: var(--background-color); /* Match theme */
+  color: var(--text-color); /* Match theme */
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none; /* Remove default outline */
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { /* Added select:focus */
+  outline: none; /* Ensure outline is removed */
+  border-color: var(--text-color); /* Use theme text color for focus border */
+  box-shadow: 0 0 0 2px var(--focus-shadow-color);
+}
+
+/* Style for the select element specifically */
+.form-group select {
+  cursor: pointer; /* Indicate it's interactive */
+  /* Inherits padding, border, font-family, font-size, background, color from above rules */
+  /* Specific styles for dropdown arrow can be added if needed, but often left to browser default */
+}
+/* Style for the options within the select element */
+.form-group select option {
+  background-color: var(--section-background-color); /* Use section bg for options */
+  color: var(--text-color); /* Use theme text color for option text */
+  /* Padding and other styles for options are often limited by browsers */
 }
 /* FOOTER SECTION */
 footer {
   height: 26vh;
   margin: 0 1rem;
-  margin-top: 10vh;
+  margin-top: 10vh; /* Add space if needed after contact */
 }
 footer p {
   text-align: center;
@@ -612,16 +611,18 @@ footer p {
   color: var(--text-color);
 }
 .lang-menu div:hover {
-  background-color: #f0f0f0;
-  color: var(--text-color);
+  background-color: #f0f0f0; /* Light hover background */
+  color: var(--text-color); /* Ensure text color stays consistent on hover */
 }
+/* Add specific dark mode hover styles for the language menu */
 body.dark-mode .lang-menu div:hover {
-  background-color: #333;
-  color: var(--text-color);
+  background-color: #333; /* Darker hover background for dark mode */
+  color: var(--text-color); /* Keep text color as defined in dark mode */
 }
 .lang-menu.show {
   display: block;
 }
+/* Language buttons inside mobile menu */
 #hamburger-nav .language-mobile {
   display: flex;
   justify-content: center;
@@ -632,16 +633,16 @@ body.dark-mode .lang-menu div:hover {
 }
 #hamburger-nav .language-mobile div {
   padding: 6px 12px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--background-color); /* Use theme background */
+  color: var(--text-color); /* Use theme text color */
   border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 #hamburger-nav .language-mobile div:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Use a light hover state, might need adjustment for dark mode */
 }
 body.dark-mode #hamburger-nav .language-mobile div:hover {
-  background-color: #333;
+  background-color: #333; /* Use a dark hover state for dark mode */
 }
 /* MODAL STYLES */
 .modal {
@@ -659,18 +660,18 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
 .modal-content {
   background-color: var(--background-color);
   color: var(--text-color);
-  margin: 5% auto;
+  margin: 5% auto; /* Center vertically with margin */
   padding: 2rem;
   border-radius: 16px;
-  width: 85%;
-  max-width: 1200px;
-  height: 75vh;
+  width: 85%; /* Wider than before */
+  max-width: 1200px; /* Increased max-width for a more screen-like feel */
+  height: 75vh; /* Shorter height, more like a screen */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   position: relative;
   animation: slideIn 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack content vertically */
+  overflow: hidden; /* Hide overflow */
 }
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -690,41 +691,42 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   position: absolute;
   top: 10px;
   right: 15px;
-  z-index: 1001;
+  z-index: 1001; /* Ensure it's on top */
 }
 .close-btn:hover {
   color: var(--btn-hover-bg-color);
 }
 .modal-body {
-  display: flex;
-  flex: 1;
-  gap: 2rem;
-  overflow: hidden;
+  display: flex; /* Flex container for image and text */
+  flex: 1; /* Take remaining space */
+  gap: 2rem; /* Space between image and text */
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
+/* Slideshow container inside modal */
 .slideshow-container {
-  flex: 1;
+  flex: 1; /* Take 50% width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 50%;
-  position: relative;
+  justify-content: center; /* Center slideshow vertically within its space */
+  max-width: 50%; /* Ensure it doesn't exceed 50% */
+  position: relative; /* For positioning arrows relative to this container */
 }
 .slideshow {
-  flex: 1;
+  flex: 1; /* Take available space inside container */
   width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  max-height: 100%; /* Limit height relative to modal-content */
+  overflow: hidden; /* Hide overflow */
+  border-radius: 8px; /* Match project image style */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: relative; /* For positioning arrows relative to this element */
 }
 .slideshow img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* Maintain aspect ratio */
 }
 .prev, .next {
   cursor: pointer;
@@ -740,10 +742,11 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   border-radius: 0 3px 3px 0;
   user-select: none;
   background-color: rgba(0,0,0,0.5);
-  z-index: 1000;
+  z-index: 1000; /* Ensure arrows are on top */
 }
+/* Fixed positioning for the left button */
 .prev {
-  left: 0;
+  left: 0; /* Positioned at the left edge of the .slideshow container */
   border-radius: 3px 0 0 3px;
 }
 .next {
@@ -772,31 +775,33 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
 .slideshow-dot.active, .slideshow-dot:hover {
   background-color: var(--btn-hover-bg-color);
 }
+/* Modal text content container */
 .modal-text-content {
-  flex: 1;
+  flex: 1; /* Take 50% width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 50%;
-  overflow-y: auto;
-  padding: 1rem;
+  justify-content: center; /* Center content vertically */
+  max-width: 50%; /* Ensure it doesn't exceed 50% */
+  overflow-y: auto; /* Allow scrolling if content is too long */
+  padding: 1rem; /* Add padding for better spacing */
 }
 .modal-text-content h2 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem 0; /* Remove default top margin, add bottom */
 }
 .modal-tech {
-  margin: 1rem 0;
+  margin: 1rem 0; /* Reduced margin */
   font-weight: 500;
 }
 .modal-tech strong {
   color: var(--btn-hover-bg-color);
 }
+/* Modal links container */
 .modal-links {
   margin-top: 1.5rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Align buttons to the start */
 }
 .modal-links .btn {
   padding: 0.6rem 1.4rem;
@@ -805,6 +810,7 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   text-decoration: none;
   display: inline-block;
 }
+/* Dark mode support for modal */
 body.dark-mode .modal-content {
   background-color: #1e1e1e;
 }
@@ -893,7 +899,7 @@ body.dark-mode .modal-content {
 /* MEDIA QUERIES */
 @media screen and (max-width: 1400px) {
   #profile {
-    height: calc(83vh - 10vh);
+    height: calc(83vh - 10vh); /* Adjust height considering navbar */
     margin-bottom: 6rem;
   }
   .about-containers {
@@ -901,7 +907,7 @@ body.dark-mode .modal-content {
   }
   #contact,
   #projects,
-  #testimonials {
+  #testimonials { /* Apply to testimonials too */
     height: fit-content;
   }
 }
@@ -910,18 +916,19 @@ body.dark-mode .modal-content {
     display: none;
   }
   #hamburger-nav {
-    display: flex;
+    display: flex; /* Show mobile nav */
   }
+  /* Adjust sections for mobile navbar height */
   section {
-    margin-top: 70px;
+    margin-top: 70px; /* Adjust based on mobile navbar height */
   }
   #profile {
-    margin-top: 70px;
-    height: calc(100vh - 70px);
+    margin-top: 70px; /* Adjust based on mobile navbar height */
+    height: calc(100vh - 70px); /* Adjust height */
   }
   #contact,
-  #testimonials {
-    margin-top: 70px;
+  #testimonials { /* Adjust testimonials too */
+    margin-top: 70px; /* Adjust based on mobile navbar height */
   }
   #experience,
   .experience-details-container {
@@ -947,7 +954,7 @@ body.dark-mode .modal-content {
     margin: 0 auto 2rem;
   }
   .about-containers,
-  #testimonials .about-containers {
+  #testimonials .about-containers { /* Apply to testimonials too */
     margin-top: 0;
   }
   .language-mobile {
@@ -970,12 +977,12 @@ body.dark-mode .modal-content {
 }
 @media screen and (max-width: 600px) {
   #contact,
-  #testimonials,
+  #testimonials, /* Adjust testimonials too */
   footer {
     height: 40vh;
   }
   #profile {
-    height: calc(83vh - 70px);
+    height: calc(83vh - 70px); /* Adjust height considering navbar */
     margin-bottom: 0;
   }
   article {
@@ -986,7 +993,7 @@ body.dark-mode .modal-content {
     margin-bottom: 2rem;
   }
   .about-containers,
-  #testimonials .about-containers,
+  #testimonials .about-containers, /* Apply to testimonials too */
   .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
@@ -1023,47 +1030,51 @@ body.dark-mode .modal-content {
   .text-container {
     text-align: justify;
   }
+  /* Ensure mobile nav padding is sufficient */
   #hamburger-nav {
-     height: 60px;
+     height: 60px; /* Slightly smaller for mobile */
      padding: 0 15px;
   }
   .hamburger-icon {
-      height: 20px;
+      height: 20px; /* Slightly smaller icon */
   }
   .hamburger-icon span {
-      height: 2px;
+      height: 2px; /* Maintain line thickness */
   }
   .menu-links a {
-      font-size: 1.25rem;
-      padding: 8px;
+      font-size: 1.25rem; /* Slightly smaller font for mobile links */
+      padding: 8px; /* Smaller padding for mobile links */
   }
+  /* Adjust modal for mobile */
   .modal-content {
     width: 95%;
     padding: 1.5rem;
     margin: 2.5% auto;
-    height: auto;
-    max-height: 90vh;
+    height: auto; /* Allow height to adjust on small screens */
+    max-height: 90vh; /* Limit max height */
   }
   .modal-body {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: column; /* Stack image and text vertically on mobile */
+    gap: 1rem; /* Reduce gap on mobile */
   }
   .slideshow-container,
   .modal-text-content {
-    max-width: 100%;
-    flex: none;
+    max-width: 100%; /* Full width on mobile */
+    flex: none; /* Reset flex properties */
   }
   .slideshow {
-    max-height: 250px;
+    max-height: 250px; /* Smaller height on mobile */
   }
+  /* Adjust skills container for mobile */
   .skills-container {
-    gap: 0.8rem;
+    gap: 0.8rem; /* Slightly reduce gap on mobile */
   }
+  /* Adjust testimonials for mobile */
   #testimonials .details-container {
-    min-width: 100%;
-    margin-bottom: 1rem;
+    min-width: 100%; /* Full width on mobile */
+    margin-bottom: 1rem; /* Add space between cards */
   }
   #testimonials .testimonial-author {
-    align-self: flex-start;
+    align-self: flex-start; /* Align author to the left on mobile */
   }
 }
