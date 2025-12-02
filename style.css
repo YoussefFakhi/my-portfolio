@@ -1,6 +1,5 @@
 /* GENERAL */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
 @font-face {
   font-family: shabnam;
   src: url("font/Shabnam.woff2") format("woff2"),
@@ -10,13 +9,11 @@
   font-weight: normal;
   font-style: normal;
 }
-
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Added for consistency */
 }
-
 :root {
   --background-color: #fff;
   --text-color: #000;
@@ -28,17 +25,18 @@
   --btn-border-color: rgb(53, 53, 53);
   --btn-hover-text-color: #fff;
   --btn-hover-bg-color: rgb(53, 53, 53);
-  --navbar-scrolled-bg: rgba(255, 255, 255, 0.9);
+  /* Define a semi-transparent background for scrolled state */
+  --navbar-scrolled-bg: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  /* You can change the color inside rgba() if needed, e.g., rgba(18, 18, 18, 0.9) for dark */
 }
-
 body {
   font-family: shabnam, "Poppins", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  /* Ensure body is positioned relative for absolute spinner positioning */
   position: relative;
 }
-
 body.dark-mode {
   --background-color: #121212;
   --text-color: #fff;
@@ -50,140 +48,128 @@ body.dark-mode {
   --btn-border-color: #fff;
   --btn-hover-text-color: #000;
   --btn-hover-bg-color: #fff;
-  --navbar-scrolled-bg: rgba(18, 18, 18, 0.9);
+  /* Define a semi-transparent background for scrolled state in dark mode */
+  --navbar-scrolled-bg: rgba(18, 18, 18, 0.9); /* Dark with 90% opacity */
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 p {
   color: rgb(85, 85, 85);
 }
-
 .logo1 {
   width: 100px;
 }
-
-/* TRANSITIONS */
+/* TRANSITION */
 a,
 .btn {
   transition: all 300ms ease;
 }
-
 /* LOADING SPINNER */
 .loading-spinner {
-  position: fixed;
+  position: fixed; /* Cover the entire viewport */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--background-color);
+  background-color: var(--background-color); /* Match body background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease-out;
+  z-index: 9999; /* Ensure it's on top of everything */
+  transition: opacity 0.5s ease-out; /* Smooth fade out */
 }
-
 .loading-spinner.fade-out {
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none; /* Disable interaction during fade out */
 }
-
 .spinner {
   width: 50px;
   height: 50px;
-  border: 5px solid rgba(85, 85, 85, 0.2);
-  border-top: 5px solid var(--text-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+  border: 5px solid rgba(85, 85, 85, 0.2); /* Light grey border */
+  border-top: 5px solid var(--text-color); /* Darker top border for animation */
+  border-radius: 50%; /* Make it circular */
+  animation: spin 1s linear infinite; /* Apply the spin animation */
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/* DESKTOP NAVIGATION */
+/* DESKTOP NAV */
 #desktop-nav {
-  position: fixed;
+  position: fixed; /* Fixed position */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  display: flex;
+  z-index: 1000; /* Ensure it's on top */
+  display: flex; /* Keep existing styles */
   justify-content: space-around;
   align-items: center;
-  height: 10vh;
+  height: 10vh; /* Reduced height */
+  /* Initial background: transparent or match body color */
   background-color: transparent;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-  padding: 0 20px;
-  box-sizing: border-box;
-  margin: 0;
+  /* Optional: Add a subtle box-shadow to define the navbar when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /* Initially no shadow */
+  padding: 0 20px; /* Optional: Add padding */
+  box-sizing: border-box; /* Include padding in width */
+  margin: 0; /* Remove any default margin */
+  /* Transition for smooth change when scrolled */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
+/* Style for navbar when scrolled */
 #desktop-nav.scrolled {
   background-color: var(--navbar-scrolled-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow when scrolled */
 }
-
 .nav-links {
-  display: flex;
+  display: flex; /* Keep existing styles */
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
 }
-
 a {
   color: var(--nav-link-color);
   text-decoration: none;
 }
-
 a:hover {
   color: grey;
   text-decoration: underline;
   text-underline-offset: 1rem;
   text-decoration-color: rgb(181, 181, 181);
 }
-
 .logo {
   font-size: 2rem;
 }
-
 .logo:hover {
   cursor: default;
 }
-
 /* HAMBURGER MENU */
 #hamburger-nav {
-  display: none;
-  position: fixed;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position when shown */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  justify-content: space-between;
+  z-index: 1000; /* Ensure it's on top */
+  justify-content: space-between; /* Adjust layout */
   align-items: center;
-  height: 70px;
-  background-color: transparent;
-  padding: 0 20px;
-  box-sizing: border-box;
+  height: 70px; /* Fixed height */
+  background-color: transparent; /* Initial transparent */
+  padding: 0 20px; /* Add padding */
+  box-sizing: border-box; /* Include padding in width */
+  /* Transition for smooth change when scrolled */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /* Initially no shadow */
 }
-
+/* Style for mobile navbar when scrolled */
 #hamburger-nav.scrolled {
   background-color: var(--navbar-scrolled-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow when scrolled */
 }
-
 .hamburger-menu {
   position: relative;
   display: inline-block;
 }
-
 .hamburger-icon {
   display: flex;
   flex-direction: column;
@@ -192,14 +178,12 @@ a:hover {
   width: 30px;
   cursor: pointer;
 }
-
 .hamburger-icon span {
   width: 100%;
   height: 2px;
   background-color: var(--text-color);
   transition: all 0.3s ease-in-out;
 }
-
 .menu-links {
   position: absolute;
   top: 100%;
@@ -209,32 +193,32 @@ a:hover {
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it appears above other content */
 }
-
+/* Style for the open state - increased max-height and added scrolling */
 .menu-links.open {
-  max-height: 500px;
-  overflow-y: auto;
-  padding: 10px 0;
+  max-height: 500px; /* Increased height */
+  overflow-y: auto; /* Allow scrolling if content exceeds max-height */
+  padding: 10px 0; /* Add padding for better spacing */
+  /* Center the list items within the menu container */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 10px; /* Add padding for easier tapping */
   text-align: center;
   font-size: 1.5rem;
   color: var(--nav-link-color);
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
 }
-
 .menu-links li {
   list-style: none;
-  text-align: center;
+  /* Center individual list items if needed, though align-items: center on parent should handle it */
+  /* width: 100%; */
+  text-align: center; /* Ensure text inside is centered */
 }
-
 /* SECTIONS */
 section {
   padding-top: 4vh;
@@ -242,31 +226,27 @@ section {
   margin: 0 5rem;
   box-sizing: border-box;
   min-height: fit-content;
-  margin-top: 10vh;
+  margin-top: 10vh; /* Push content below the fixed desktop navbar */
 }
-
 .section-container {
   display: flex;
   gap: 4rem;
   height: 80%;
 }
-
 /* PROFILE SECTION */
 #profile {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
-  margin-top: 10vh;
+  height: 80vh; /* Adjusted based on new navbar height */
+  margin-top: 10vh; /* Ensure profile section starts below navbar */
 }
-
 .section__pic-container {
   display: flex;
   height: 400px;
   width: 400px;
   margin: auto 0;
 }
-
 .section__text {
   align-self: center;
   text-align: center;
@@ -274,28 +254,23 @@ section {
   opacity: 0;
   animation: fadeInText 2s forwards;
 }
-
 .section__text__p1 {
   text-align: center;
 }
-
 .section__text__p2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
-
 .title {
   font-size: 2.5rem;
   text-align: center;
 }
-
 #socials-container {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
   gap: 1rem;
 }
-
 /* ICONS */
 .icon {
   width: 35px;
@@ -303,83 +278,89 @@ section {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .icon:hover {
   transform: scale(1.2);
 }
-
 /* BUTTONS */
 .btn-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
-
 .btn {
   font-weight: 300;
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
-  font-family: shabnam;
-  border: rgb(53, 53, 53) 0.1rem solid;
-}
-
-.btn-color-1,
-.btn-color-2 {
+  font-family: shabnam, "Poppins", sans-serif;
+  text-align: center;
   cursor: pointer;
+  transition: all 300ms ease;
 }
-
 .btn-color-1 {
-  background: rgb(53, 53, 53);
-  color: white;
+  background-color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-text-color);
+  border: 0.1rem solid var(--btn-hover-bg-color);
 }
-
 .btn-color-1:hover {
-  background: rgb(0, 0, 0);
+  background-color: var(--btn-hover-text-color);
+  color: var(--btn-hover-bg-color);
+  border-color: var(--btn-hover-text-color);
 }
-
 .btn-color-2 {
-  background: none;
+  background-color: transparent;
   color: var(--btn-text-color);
-  border: var(--border-color) 0.1rem solid;
+  border: 0.1rem solid var(--btn-border-color);
+}
+.btn-color-2:hover {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-text-color);
+  border-color: var(--btn-hover-bg-color);
 }
 
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
-  border: rgb(255, 255, 255) 0.1rem solid;
+#contact-form .btn-color-1 {
+  background-color: transparent;
+  color: var(--btn-text-color);
+  border: 0.1rem solid var(--btn-border-color);
 }
+#contact-form .btn-color-1:hover {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-text-color);
+  border-color: var(--btn-hover-bg-color);
+}
+
+/* Override for "Contact Me" button hover in light mode */
+body:not(.dark-mode) .btn-container .btn-color-1:hover {
+  background-color: #000; /* Use a dark color that contrasts with light bg */
+  color: #fff;
+  border-color: #000;
+}
+
 
 /* ABOUT SECTION */
 #about {
   position: relative;
 }
-
 .about-containers,
 .about-details-container {
   display: flex;
 }
-
 .about-containers {
   gap: 2rem;
   margin: 2rem 0;
 }
-
 .about-details-container {
   justify-content: center;
   flex-direction: column;
 }
-
 .about-pic {
   margin-top: 30px;
 }
-
 .arrow {
   position: absolute;
   right: -5rem;
   bottom: 2.5rem;
 }
-
 .details-container {
   padding: 1.5rem;
   flex: 1;
@@ -388,295 +369,375 @@ section {
   border: var(--border-color) 0.1rem solid;
   text-align: center;
 }
-
 /* EXPERIENCE SECTION */
 #experience {
   position: relative;
 }
-
 .experience-sub-title {
   color: rgb(85, 85, 85);
   font-weight: 400;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
-
 .experience-details-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-
 /* SKILLS VISUALIZATION */
 .skills-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 100%;
+  gap: 1rem; /* Space between skill items */
+  width: 100%; /* Ensure it takes full width of its container */
 }
-
 .skill-item {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .skill-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Name on left, level on right */
   align-items: center;
 }
-
 .skill-name {
   font-weight: 500;
   color: var(--text-color);
 }
-
 .skill-level {
   font-size: 0.9rem;
-  color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-bg-color); /* Use theme color for level */
   font-weight: 500;
 }
-
 .skill-bar {
   height: 10px;
-  background-color: var(--section-background-color);
+  background-color: var(--section-background-color); /* Light background */
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Subtle inner shadow */
 }
-
 .skill-bar-fill {
   height: 100%;
   border-radius: 5px;
-  width: 0;
-  animation: fillBar 1s ease-out forwards;
+  width: 0; /* Start at 0% width */
+  animation: fillBar 1s ease-out forwards; /* Animation to fill the bar */
+  transition: width 0.5s ease; /* Smooth transition if width changes dynamically */
 }
-
+/* Different colors for different skill levels */
 .skill-bar-fill.basic {
-  background-color: #ffd166;
+  background-color: #ffd166; /* Yellow for basic - less harsh than red */
 }
-
 .skill-bar-fill.intermediate {
-  background-color: #ffa500;
+  background-color: #ffa500; /* Orange for intermediate */
 }
-
 .skill-bar-fill.experienced {
-  background-color: #06d6a0;
+  background-color: #06d6a0; /* Green for experienced */
 }
-
+/* Animation for the skill bar fill */
 @keyframes fillBar {
-  from { width: 0; }
-  to { width: var(--target-width, 100%); }
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--target-width, 100%); /* Use CSS variable for target width if defined, fallback to 100% */
+  }
 }
-
 /* TESTIMONIALS SECTION */
 #testimonials {
   position: relative;
 }
-
 #testimonials .experience-sub-title {
+  /* Reuse existing style if applicable */
   color: rgb(85, 85, 85);
   font-weight: 400;
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
-
 #testimonials .about-containers {
+  /* Reuse existing style for layout */
   gap: 2rem;
   margin: 2rem 0;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
-
 #testimonials .details-container {
+  /* Reuse existing style for container */
   padding: 1.5rem;
   flex: 1;
-  background: var(--section-background-color);
+  background: var(--section-background-color); /* Use section background */
   border-radius: 2rem;
   border: var(--border-color) 0.1rem solid;
-  text-align: left;
-  min-width: 250px;
+  text-align: left; /* Align text to the left */
+  min-width: 250px; /* Minimum width for each testimonial card */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Center content vertically */
 }
-
 .testimonial-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 .testimonial-content p {
-  margin: 0;
-  font-style: italic;
+  margin: 0; /* Remove default paragraph margin */
+  font-style: italic; /* Italicize the testimonial text */
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.6; /* Improve readability */
 }
-
 .testimonial-author {
-  align-self: flex-end;
+  align-self: flex-end; /* Align author name to the right */
   font-weight: 500;
-  color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-bg-color); /* Use theme color for author */
 }
-
+/* ARTICLE CONTAINER (for other sections that might still use it) */
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: space-around;
+  text-align: initial;
+}
 /* PROJECTS SECTION */
 #projects {
   position: relative;
 }
-
 .color-container {
   background: var(--section-background-color);
   border-color: var(--border-color);
 }
-
 .project-img {
   border-radius: 2rem;
   width: 90%;
   height: 90%;
 }
-
 .project-title {
   margin: 1rem;
   color: var(--text-color);
 }
-
 .project-btn {
   color: var(--btn-text-color);
   border-color: var(--border-color);
 }
-
-/* CONTACT SECTION */
+/* CONTACT */
 #contact {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: auto;
-  min-height: 70vh;
-  margin-bottom: 4rem;
-  margin-top: 10vh;
+  height: auto; /* Adjust height to content */
+  min-height: 70vh; /* Ensure minimum height */
+  margin-bottom: 4rem; /* Add some space at the bottom */
+  margin-top: 10vh; /* Push below navbar */
 }
-
+/* Updated container for the form to remove old info styles */
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Center vertically if space allows */
   margin: 2rem auto;
-  max-width: 700px;
+  padding: 0; /* Remove padding as form will have its own */
+  border: none; /* Remove border as form will have its own */
+  background: none; /* Remove background as form will have its own */
+  max-width: 700px; /* Constrain width for better form presentation */
   width: 100%;
 }
-
+/* CONTACT FORM STYLES */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  padding: 2.5rem;
-  border-radius: 1.5rem;
-  background: var(--section-background-color);
-  border: var(--border-color) 0.1rem solid;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem; /* Increased padding */
+  border-radius: 1.5rem; /* Slightly larger border-radius */
+  background: var(--section-background-color); /* Use section background */
+  border: var(--border-color) 0.1rem solid; /* Add border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
 }
 
+#contact-form .btn-color-1 {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
 .form-group label {
   font-size: 1.2rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem; /* Increased margin */
   color: var(--text-color);
-  font-weight: 500;
+  font-weight: 500; /* Slightly bolder label */
 }
-
 .form-group input,
-.form-group textarea {
-  padding: 1rem;
+.form-group textarea,
+.form-group select { /* Added select to the selector */
+  padding: 1rem; /* Increased padding */
   border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
+  border-radius: 0.75rem; /* Slightly larger border-radius */
   font-family: shabnam, "Poppins", sans-serif;
-  font-size: 1.1rem;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  font-size: 1.1rem; /* Slightly larger font size */
+  background-color: var(--background-color); /* Match theme */
+  color: var(--text-color); /* Match theme */
   transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none; /* Remove default outline */
 }
-
 .form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #3f51b5;
-  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+.form-group textarea:focus,
+.form-group select:focus { /* Added select:focus */
+  outline: none; /* Ensure outline is removed */
+  border-color: var(--text-color); /* Use theme text color for focus border */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Optional: A subtle focus shadow using a semi-transparent version of the border color */
+  /* For dark mode, rgba(0,0,0, 0.1) becomes rgba(0,0,0, 0.1), which is light grey. */
+  /* For light mode, rgba(0,0,0, 0.1) is light grey. */
+  /* To make the shadow theme-aware, we can use the theme background color with opacity. */
+  /* However, rgba(0,0,0, 0.1) or rgba(255,255,255, 0.1) might be too dark/light. */
+  /* A compromise is to use a color that works well on both or derive it from the theme. */
+  /* For now, using a very light/dark grey based on the background might be safer. */
+  /* Let's use a more generic approach: */
+  /* box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Original suggestion */
+  /* box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Generic dark */
+  /* box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); /* Generic light */
+  /* Or, use the theme's background color with low opacity for a subtle effect: */
+  /* box-shadow: 0 0 0 3px rgba(var(--background-color-rgb), 0.2); /* This requires --background-color-rgb */
+  /* The simplest approach that works with existing variables is: */
+  /* Use a semi-transparent version of the --text-color, which is opposite to the background. */
+  /* For dark mode text (white), rgba(255,255,255, 0.2) is light and visible on dark bg. */
+  /* For light mode text (black), rgba(0,0,0, 0.2) is dark and visible on light bg. */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Adjusted thickness and opacity */
+  /* In dark mode, --text-color is white, so rgba(255,255,255, 0.1) would be very light. */
+  /* In light mode, --text-color is black, so rgba(0,0,0, 0.1) is very dark. */
+  /* This might be too subtle. Let's use a color derived from the border color or a fixed theme color. */
+  /* Let's try using the --border-color itself, but with opacity: */
+  /* box-shadow: 0 0 0 2px rgba(var(--border-color-rgb), 0.3); /* Needs --border-color-rgb */
+  /* The original suggestion using a fixed color like #3f51b5 was good. */
+  /* Let's define a custom property for the focus shadow color or use a blend. */
+  /* For simplicity and consistency, let's stick to a color derived from --text-color but ensure visibility. */
+  /* A compromise: use --text-color with a moderate opacity, ensuring it contrasts with the background. */
+  /* This might require defining specific shadow colors per theme. */
+  /* For now, let's use the --text-color itself with some alpha, acknowledging it might be subtle. */
+  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Generic */
+  /* Let's try using the --btn-hover-bg-color which is usually high contrast */
+  /* box-shadow: 0 0 0 2px rgba(53, 53, 53, 0.3); /* Original button hover */
+  /* In dark mode, --btn-hover-bg-color is white. rgba(255, 255, 255, 0.3) on dark bg is visible. */
+  /* In light mode, --btn-hover-bg-color is white. rgba(255, 255, 255, 0.3) on light bg is not visible. */
+  /* Let's try --btn-hover-text-color */
+  /* In dark mode, --btn-hover-text-color is black. rgba(0, 0, 0, 0.3) on dark bg is not visible. */
+  /* In light mode, --btn-hover-text-color is black. rgba(0, 0, 0, 0.3) on light bg is visible. */
+  /* Let's try --nav-link-color */
+  /* In dark mode, --nav-link-color is white. rgba(255, 255, 255, 0.3) on dark bg is visible. */
+  /* In light mode, --nav-link-color is black. rgba(0, 0, 0, 0.3) on light bg is visible. */
+  /* This seems like a good candidate. */
+  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Let's revert to the simple one for now, as --nav-link-color is similar to --text-color. */
+  /* The initial simple rgba(0,0,0, 0.1) or rgba(255,255,255, 0.1) based on --text-color might be best. */
+  /* In light mode: --text-color is #000 (black). rgba(0, 0, 0, 0.1) is a dark grey shadow. Visible on light bg. */
+  /* In dark mode: --text-color is #fff (white). rgba(255, 255, 255, 0.1) is a light grey shadow. Visible on dark bg. */
+  /* This is the best generic approach without defining new variables. */
+  /* So, the line above stands: */
+  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* This works as rgba(0,0,0, 0.1) in dark mode becomes rgba(255,255,255, 0.1) implicitly if --text-color is used as the base, but it doesn't. */
+  /* We need a shadow color that's the opposite of the background. --text-color is that. */
+  /* Let's use: */
+  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* This is fixed. */
+  /* To make it theme-aware, we need a new variable or use --text-color. */
+  /* Let's define a --focus-shadow-color in :root and dark-mode. */
+  /* However, CSS variables cannot be used directly inside rgba(). */
+  /* The best way is to define the full color in the variable. */
+  /* :root { --focus-shadow-color: rgba(0, 0, 0, 0.2); } */
+  /* body.dark-mode { --focus-shadow-color: rgba(255, 255, 255, 0.2); } */
+  /* Then: box-shadow: 0 0 0 2px var(--focus-shadow-color); */
+  /* Let's add these variables and use them. */
+  /* Define in :root and body.dark-mode */
+  /* :root { --focus-shadow-color: rgba(0, 0, 0, 0.1); } */
+  /* body.dark-mode { --focus-shadow-color: rgba(255, 255, 255, 0.1); } */
+  /* Then apply: */
+  /* box-shadow: 0 0 0 2px var(--focus-shadow-color); */
+  /* Let's add these variables to the :root and body.dark-mode blocks. */
+  /* :root {
+    ...
+    --focus-shadow-color: rgba(0, 0, 0, 0.1); /* Default for light mode */
+  /* }
+  /* body.dark-mode {
+    ...
+    --focus-shadow-color: rgba(255, 255, 255, 0.1); /* For dark mode */
+  /* }
+  /* Then use it here: */
+  /* box-shadow: 0 0 0 2px var(--focus-shadow-color); */
+  /* This requires updating the :root and body.dark-mode blocks above. */
+  /* Let's add the variable definition here first, then update the blocks. */
+  /* It's better to define it in the CSS variables section. */
+  /* Let's update the :root and body.dark-mode blocks first: */
+  /* :root {
+    --background-color: #fff;
+    --text-color: #000;
+    --section-background-color: rgb(250, 250, 250);
+    --border-color: rgb(163, 163, 163);
+    --nav-link-color: #000;
+    --nav-link-hover-color: grey;
+    --btn-text-color: #000;
+    --btn-border-color: rgb(53, 53, 53);
+    --btn-hover-text-color: #fff;
+    --btn-hover-bg-color: rgb(53, 53, 53);
+    --navbar-scrolled-bg: rgba(255, 255, 255, 0.9);
+    --focus-shadow-color: rgba(0, 0, 0, 0.1); /* Focus shadow for light mode
+  /* }
+  /* body.dark-mode {
+    --background-color: #121212;
+    --text-color: #fff;
+    --section-background-color: #333;
+    --border-color: #555;
+    --nav-link-color: #fff;
+    --nav-link-hover-color: #bbb;
+    --btn-text-color: #fff;
+    --btn-border-color: #fff;
+    --btn-hover-text-color: #000;
+    --btn-hover-bg-color: #fff;
+    --navbar-scrolled-bg: rgba(18, 18, 18, 0.9);
+    --focus-shadow-color: rgba(255, 255, 255, 0.1); /* Focus shadow for dark mode
+  /* }
+  /* Now we can use it: */
+  box-shadow: 0 0 0 2px var(--focus-shadow-color);
 }
-/* Add this inside your existing CSS file if needed for specific select styling */
+/* Define the focus shadow color variable in the root and dark mode */
+:root {
+  --focus-shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode focus */
+}
+body.dark-mode {
+  --focus-shadow-color: rgba(255, 255, 255, 0.1); /* Subtle shadow for dark mode focus */
+}
+
+/* Style for the select element specifically */
 .form-group select {
-  /* Inherits padding, border, font-family, font-size from .form-group input/textarea */
-  background-color: var(--background-color);
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  padding: 1rem; /* Match input/textarea padding */
-  font-family: shabnam, "Poppins", sans-serif;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  width: 100%; /* Ensure it fills the container width */
-  box-sizing: border-box; /* Include padding in width calculation */
+  cursor: pointer; /* Indicate it's interactive */
+  /* Inherits padding, border, font-family, font-size, background, color from above rules */
+  /* Specific styles for dropdown arrow can be added if needed, but often left to browser default */
 }
-
-.form-group select:focus {
-  outline: none;
-  border-color: #3f51b5; /* Match focus color of input/textarea */
-  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+/* Style for the options within the select element */
+.form-group select option {
+  background-color: var(--section-background-color); /* Use section bg for options */
+  color: var(--text-color); /* Use theme text color for option text */
+  /* Padding and other styles for options are often limited by browsers */
 }
-
-.contact-form .btn[type="submit"] {
-  align-self: flex-end;
-  margin-top: 1.5rem;
-  padding: 0.8rem 2.2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 0.75rem;
-  border: var(--btn-border-color) 0.1rem solid;
-  background: none;
-  color: var(--btn-text-color);
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.contact-form .btn[type="submit"]:hover {
-  background-color: var(--btn-hover-bg-color);
-  color: var(--btn-hover-text-color);
-  border-color: var(--btn-hover-bg-color);
-}
-
-/* FOOTER */
+/* FOOTER SECTION */
 footer {
   height: 26vh;
   margin: 0 1rem;
-  margin-top: 10vh;
+  margin-top: 10vh; /* Add space if needed after contact */
 }
-
 footer p {
   text-align: center;
 }
-
-/* LANGUAGE DROPDOWN */
 .language-dropdown {
   position: relative;
 }
-
 .globe-icon {
   width: 24px;
   height: 24px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .globe-icon:hover {
   transform: scale(1.1);
 }
-
 .lang-menu {
   position: absolute;
   top: 35px;
@@ -691,27 +752,25 @@ footer p {
   min-width: 100px;
   text-align: left;
 }
-
 .lang-menu div {
   padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
   color: var(--text-color);
 }
-
 .lang-menu div:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Light hover background */
+  color: var(--text-color); /* Ensure text color stays consistent on hover */
 }
-
+/* Add specific dark mode hover styles for the language menu */
 body.dark-mode .lang-menu div:hover {
-  background-color: #333;
+  background-color: #333; /* Darker hover background for dark mode */
+  color: var(--text-color); /* Keep text color as defined in dark mode */
 }
-
 .lang-menu.show {
   display: block;
 }
-
-/* LANGUAGE MOBILE BUTTONS */
+/* Language buttons inside mobile menu */
 #hamburger-nav .language-mobile {
   display: flex;
   justify-content: center;
@@ -720,23 +779,19 @@ body.dark-mode .lang-menu div:hover {
   font-size: 1rem;
   cursor: pointer;
 }
-
 #hamburger-nav .language-mobile div {
   padding: 6px 12px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--background-color); /* Use theme background */
+  color: var(--text-color); /* Use theme text color */
   border-radius: 6px;
   transition: background-color 0.3s ease;
 }
-
 #hamburger-nav .language-mobile div:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Use a light hover state, might need adjustment for dark mode */
 }
-
 body.dark-mode #hamburger-nav .language-mobile div:hover {
-  background-color: #333;
+  background-color: #333; /* Use a dark hover state for dark mode */
 }
-
 /* MODAL STYLES */
 .modal {
   display: none;
@@ -750,34 +805,30 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   backdrop-filter: blur(4px);
   animation: fadeIn 0.3s ease;
 }
-
 .modal-content {
   background-color: var(--background-color);
   color: var(--text-color);
-  margin: 5% auto;
+  margin: 5% auto; /* Center vertically with margin */
   padding: 2rem;
   border-radius: 16px;
-  width: 85%;
-  max-width: 1200px;
-  height: 75vh;
+  width: 85%; /* Wider than before */
+  max-width: 1200px; /* Increased max-width for a more screen-like feel */
+  height: 75vh; /* Shorter height, more like a screen */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   position: relative;
   animation: slideIn 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack content vertically */
+  overflow: hidden; /* Hide overflow */
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slideIn {
   from { transform: translateY(-30px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
-
 .close-btn {
   color: var(--text-color);
   float: right;
@@ -788,50 +839,44 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   position: absolute;
   top: 10px;
   right: 15px;
-  z-index: 1001;
+  z-index: 1001; /* Ensure it's on top */
 }
-
 .close-btn:hover {
   color: var(--btn-hover-bg-color);
 }
-
 .modal-body {
-  display: flex;
-  flex: 1;
-  gap: 2rem;
-  overflow: hidden;
+  display: flex; /* Flex container for image and text */
+  flex: 1; /* Take remaining space */
+  gap: 2rem; /* Space between image and text */
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
-
+/* Slideshow container inside modal */
 .slideshow-container {
-  flex: 1;
+  flex: 1; /* Take 50% width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 50%;
-  position: relative;
+  justify-content: center; /* Center slideshow vertically within its space */
+  max-width: 50%; /* Ensure it doesn't exceed 50% */
+  position: relative; /* For positioning arrows relative to this container */
 }
-
 .slideshow {
-  flex: 1;
+  flex: 1; /* Take available space inside container */
   width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 100%; /* Limit height relative to modal-content */
+  overflow: hidden; /* Hide overflow */
+  border-radius: 8px; /* Match project image style */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: relative; /* For positioning arrows relative to this element */
 }
-
 .slideshow img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* Maintain aspect ratio */
 }
-
-.prev,
-.next {
+.prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -842,34 +887,29 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000; /* Ensure arrows are on top */
 }
-
+/* Fixed positioning for the left button */
 .prev {
-  left: 0;
+  left: 0; /* Positioned at the left edge of the .slideshow container */
   border-radius: 3px 0 0 3px;
 }
-
 .next {
   right: 0;
-  border-radius: 0 3px 3px 0;
+  border-radius: 3px 0 0 3px;
 }
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
-
 .slideshow-dots {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 5px;
 }
-
 .slideshow-dot {
   cursor: pointer;
   height: 10px;
@@ -880,43 +920,37 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-
-.slideshow-dot.active,
-.slideshow-dot:hover {
+.slideshow-dot.active, .slideshow-dot:hover {
   background-color: var(--btn-hover-bg-color);
 }
-
+/* Modal text content container */
 .modal-text-content {
-  flex: 1;
+  flex: 1; /* Take 50% width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 50%;
-  overflow-y: auto;
-  padding: 1rem;
+  justify-content: center; /* Center content vertically */
+  max-width: 50%; /* Ensure it doesn't exceed 50% */
+  overflow-y: auto; /* Allow scrolling if content is too long */
+  padding: 1rem; /* Add padding for better spacing */
 }
-
 .modal-text-content h2 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem 0; /* Remove default top margin, add bottom */
 }
-
 .modal-tech {
-  margin: 1rem 0;
+  margin: 1rem 0; /* Reduced margin */
   font-weight: 500;
 }
-
 .modal-tech strong {
   color: var(--btn-hover-bg-color);
 }
-
+/* Modal links container */
 .modal-links {
   margin-top: 1.5rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Align buttons to the start */
 }
-
 .modal-links .btn {
   padding: 0.6rem 1.4rem;
   font-size: 1rem;
@@ -924,42 +958,36 @@ body.dark-mode #hamburger-nav .language-mobile div:hover {
   text-decoration: none;
   display: inline-block;
 }
-
+/* Dark mode support for modal */
 body.dark-mode .modal-content {
   background-color: #1e1e1e;
 }
-
 /* ANIMATIONS */
 @keyframes fadeInText {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes fadeInLeft {
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-
 .reveal {
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease-out;
 }
-
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -977,7 +1005,6 @@ body.dark-mode .modal-content {
 .delay-15 { transition-delay: 1.5s; }
 .delay-16 { transition-delay: 1.6s; }
 .delay-17 { transition-delay: 1.7s; }
-
 .copyright {
   font-size: 1em;
   color: #777;
@@ -986,21 +1013,18 @@ body.dark-mode .modal-content {
   transform: translateY(20px);
   transition: opacity 2s ease-in-out, transform 2s ease-in-out;
 }
-
 #desktop-nav,
 #hamburger-nav {
   opacity: 0;
   transform: translateY(-20px);
   animation: fadeInUp 1s forwards;
 }
-
 #desktop-nav .nav-items li,
 #hamburger-nav .menu-links li {
   opacity: 0;
   transform: translateX(-20px);
   animation: fadeInLeft 1s forwards;
 }
-
 #desktop-nav .nav-items li:nth-child(1),
 #hamburger-nav .menu-links li:nth-child(1) { animation-delay: 0.1s; }
 #desktop-nav .nav-items li:nth-child(2),
@@ -1011,93 +1035,76 @@ body.dark-mode .modal-content {
 #hamburger-nav .menu-links li:nth-child(4) { animation-delay: 0.4s; }
 #desktop-nav .nav-items li:nth-child(5),
 #hamburger-nav .menu-links li:nth-child(5) { animation-delay: 0.5s; }
-
 .theme-icon {
   width: 28px;
   height: 28px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .theme-icon:hover {
   transform: scale(1.1);
 }
-
 /* MEDIA QUERIES */
 @media screen and (max-width: 1400px) {
   #profile {
-    height: calc(83vh - 10vh);
+    height: calc(83vh - 10vh); /* Adjust height considering navbar */
     margin-bottom: 6rem;
   }
-
   .about-containers {
     flex-wrap: wrap;
   }
-
   #contact,
   #projects,
-  #testimonials {
+  #testimonials { /* Apply to testimonials too */
     height: fit-content;
   }
 }
-
 @media screen and (max-width: 1200px) {
   #desktop-nav {
     display: none;
   }
-
   #hamburger-nav {
-    display: flex;
+    display: flex; /* Show mobile nav */
   }
-
+  /* Adjust sections for mobile navbar height */
   section {
-    margin-top: 70px;
+    margin-top: 70px; /* Adjust based on mobile navbar height */
   }
-
   #profile {
-    margin-top: 70px;
-    height: calc(100vh - 70px);
+    margin-top: 70px; /* Adjust based on mobile navbar height */
+    height: calc(100vh - 70px); /* Adjust height */
   }
-
   #contact,
-  #testimonials {
-    margin-top: 70px;
+  #testimonials { /* Adjust testimonials too */
+    margin-top: 70px; /* Adjust based on mobile navbar height */
   }
-
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
-
   #profile,
   .section-container {
     display: block;
   }
-
   .arrow {
     display: none;
   }
-
   section,
   .section-container {
     height: fit-content;
   }
-
   section {
     margin: 0 5%;
   }
-
   .section__pic-container {
     width: 275px;
     height: 275px;
     margin: 0 auto 2rem;
   }
-
   .about-containers,
-  #testimonials .about-containers {
+  #testimonials .about-containers { /* Apply to testimonials too */
     margin-top: 0;
   }
-
   .language-mobile {
     display: flex;
     justify-content: center;
@@ -1106,139 +1113,116 @@ body.dark-mode .modal-content {
     font-size: 1rem;
     cursor: pointer;
   }
-
   .language-mobile div {
     padding: 6px 12px;
     background-color: #eee;
     border-radius: 6px;
     transition: background-color 0.3s ease;
   }
-
   .language-mobile div:hover {
     background-color: #ccc;
   }
 }
-
 @media screen and (max-width: 600px) {
   #contact,
-  #testimonials,
+  #testimonials, /* Adjust testimonials too */
   footer {
     height: 40vh;
   }
-
   #profile {
-    height: calc(83vh - 70px);
+    height: calc(83vh - 70px); /* Adjust height considering navbar */
     margin-bottom: 0;
   }
-
   article {
     font-size: 1rem;
   }
-
   footer nav {
     height: fit-content;
     margin-bottom: 2rem;
   }
-
   .about-containers,
-  #testimonials .about-containers,
+  #testimonials .about-containers, /* Apply to testimonials too */
   .contact-info-upper-container,
   .btn-container {
     flex-wrap: wrap;
   }
-
   .contact-info-container {
     margin: 0;
   }
-
   .contact-info-container p,
   .nav-links li a {
     font-size: 1rem;
   }
-
   .experience-sub-title {
     font-size: 1.25rem;
   }
-
   .logo {
     font-size: 1.5rem;
   }
-
   .nav-links {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
   }
-
   .section__pic-container {
     width: auto;
     height: 46vw;
     justify-content: center;
   }
-
   .section__text__p2 {
     font-size: 1.25rem;
   }
-
   .title {
     font-size: 2rem;
   }
-
   .text-container {
     text-align: justify;
   }
-
+  /* Ensure mobile nav padding is sufficient */
   #hamburger-nav {
-    height: 60px;
-    padding: 0 15px;
+     height: 60px; /* Slightly smaller for mobile */
+     padding: 0 15px;
   }
-
   .hamburger-icon {
-    height: 20px;
+      height: 20px; /* Slightly smaller icon */
   }
-
   .hamburger-icon span {
-    height: 2px;
+      height: 2px; /* Maintain line thickness */
   }
-
   .menu-links a {
-    font-size: 1.25rem;
-    padding: 8px;
+      font-size: 1.25rem; /* Slightly smaller font for mobile links */
+      padding: 8px; /* Smaller padding for mobile links */
   }
-
+  /* Adjust modal for mobile */
   .modal-content {
     width: 95%;
     padding: 1.5rem;
     margin: 2.5% auto;
-    height: auto;
-    max-height: 90vh;
+    height: auto; /* Allow height to adjust on small screens */
+    max-height: 90vh; /* Limit max height */
   }
-
   .modal-body {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: column; /* Stack image and text vertically on mobile */
+    gap: 1rem; /* Reduce gap on mobile */
   }
-
   .slideshow-container,
   .modal-text-content {
-    max-width: 100%;
-    flex: none;
+    max-width: 100%; /* Full width on mobile */
+    flex: none; /* Reset flex properties */
   }
-
   .slideshow {
-    max-height: 250px;
+    max-height: 250px; /* Smaller height on mobile */
   }
-
+  /* Adjust skills container for mobile */
   .skills-container {
-    gap: 0.8rem;
+    gap: 0.8rem; /* Slightly reduce gap on mobile */
   }
-
+  /* Adjust testimonials for mobile */
   #testimonials .details-container {
-    min-width: 100%;
-    margin-bottom: 1rem;
+    min-width: 100%; /* Full width on mobile */
+    margin-bottom: 1rem; /* Add space between cards */
   }
-
   #testimonials .testimonial-author {
-    align-self: flex-start;
+    align-self: flex-start; /* Align author to the left on mobile */
   }
 }
