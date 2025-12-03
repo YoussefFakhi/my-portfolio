@@ -28,6 +28,7 @@
   /* Define a semi-transparent background for scrolled state */
   --navbar-scrolled-bg: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
   /* You can change the color inside rgba() if needed, e.g., rgba(18, 18, 18, 0.9) for dark */
+  --focus-shadow-color: rgba(0, 0, 0, 0.1);
 }
 body {
   font-family: shabnam, "Poppins", sans-serif;
@@ -50,6 +51,7 @@ body.dark-mode {
   --btn-hover-bg-color: #fff;
   /* Define a semi-transparent background for scrolled state in dark mode */
   --navbar-scrolled-bg: rgba(18, 18, 18, 0.9); /* Dark with 90% opacity */
+  --focus-shadow-color: rgba(255, 255, 255, 0.1); /* Subtle shadow for dark mode focus */
 }
 html {
   scroll-behavior: smooth;
@@ -318,24 +320,12 @@ section {
   border-color: var(--btn-hover-bg-color);
 }
 
-#contact-form .btn-color-1 {
-  background-color: transparent;
-  color: var(--btn-text-color);
-  border: 0.1rem solid var(--btn-border-color);
-}
-#contact-form .btn-color-1:hover {
-  background-color: var(--btn-hover-bg-color);
-  color: var(--btn-hover-text-color);
-  border-color: var(--btn-hover-bg-color);
-}
-
 /* Override for "Contact Me" button hover in light mode */
 body:not(.dark-mode) .btn-container .btn-color-1:hover {
   background-color: #000; /* Use a dark color that contrasts with light bg */
   color: #fff;
   border-color: #000;
 }
-
 
 /* ABOUT SECTION */
 #about {
@@ -384,7 +374,8 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   justify-content: center;
   flex-direction: column;
 }
-/* SKILLS VISUALIZATION */
+
+/* SKILLS VISUALIZATION - Updated */
 .skills-container {
   display: flex;
   flex-direction: column;
@@ -393,56 +384,23 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
 }
 .skill-item {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center; /* Align logo and name vertically */
+  gap: 1rem; /* Space between logo and name */
+  padding: 0.5rem 0; /* Add some vertical padding */
 }
-.skill-info {
-  display: flex;
-  justify-content: space-between; /* Name on left, level on right */
-  align-items: center;
+.skill-logo {
+  width: 32px; /* Adjust size as needed */
+  height: 32px; /* Adjust size as needed */
+  object-fit: contain; /* Maintain aspect ratio */
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 .skill-name {
   font-weight: 500;
   color: var(--text-color);
+  font-size: 1.1rem; /* Adjust size as needed */
+  flex-grow: 1; /* Allow name to take remaining space */
 }
-.skill-level {
-  font-size: 0.9rem;
-  color: var(--btn-hover-bg-color); /* Use theme color for level */
-  font-weight: 500;
-}
-.skill-bar {
-  height: 10px;
-  background-color: var(--section-background-color); /* Light background */
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* Subtle inner shadow */
-}
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 5px;
-  width: 0; /* Start at 0% width */
-  animation: fillBar 1s ease-out forwards; /* Animation to fill the bar */
-  transition: width 0.5s ease; /* Smooth transition if width changes dynamically */
-}
-/* Different colors for different skill levels */
-.skill-bar-fill.basic {
-  background-color: #ffd166; /* Yellow for basic - less harsh than red */
-}
-.skill-bar-fill.intermediate {
-  background-color: #ffa500; /* Orange for intermediate */
-}
-.skill-bar-fill.experienced {
-  background-color: #06d6a0; /* Green for experienced */
-}
-/* Animation for the skill bar fill */
-@keyframes fillBar {
-  from {
-    width: 0;
-  }
-  to {
-    width: var(--target-width, 100%); /* Use CSS variable for target width if defined, fallback to 100% */
-  }
-}
+
 /* TESTIMONIALS SECTION */
 #testimonials {
   position: relative;
@@ -560,6 +518,15 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
 #contact-form .btn-color-1 {
   margin-left: auto;
   margin-right: 0;
+  background-color: transparent;
+  color: var(--btn-text-color);
+  border: 0.1rem solid var(--btn-border-color);
+}
+
+#contact-form .btn-color-1:hover {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-text-color);
+  border-color: var(--btn-hover-bg-color);
 }
 
 
@@ -587,122 +554,7 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
 .form-group select:focus { /* Added select:focus */
   outline: none; /* Ensure outline is removed */
   border-color: var(--text-color); /* Use theme text color for focus border */
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Optional: A subtle focus shadow using a semi-transparent version of the border color */
-  /* For dark mode, rgba(0,0,0, 0.1) becomes rgba(0,0,0, 0.1), which is light grey. */
-  /* For light mode, rgba(0,0,0, 0.1) is light grey. */
-  /* To make the shadow theme-aware, we can use the theme background color with opacity. */
-  /* However, rgba(0,0,0, 0.1) or rgba(255,255,255, 0.1) might be too dark/light. */
-  /* A compromise is to use a color that works well on both or derive it from the theme. */
-  /* For now, using a very light/dark grey based on the background might be safer. */
-  /* Let's use a more generic approach: */
-  /* box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Original suggestion */
-  /* box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Generic dark */
-  /* box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); /* Generic light */
-  /* Or, use the theme's background color with low opacity for a subtle effect: */
-  /* box-shadow: 0 0 0 3px rgba(var(--background-color-rgb), 0.2); /* This requires --background-color-rgb */
-  /* The simplest approach that works with existing variables is: */
-  /* Use a semi-transparent version of the --text-color, which is opposite to the background. */
-  /* For dark mode text (white), rgba(255,255,255, 0.2) is light and visible on dark bg. */
-  /* For light mode text (black), rgba(0,0,0, 0.2) is dark and visible on light bg. */
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Adjusted thickness and opacity */
-  /* In dark mode, --text-color is white, so rgba(255,255,255, 0.1) would be very light. */
-  /* In light mode, --text-color is black, so rgba(0,0,0, 0.1) is very dark. */
-  /* This might be too subtle. Let's use a color derived from the border color or a fixed theme color. */
-  /* Let's try using the --border-color itself, but with opacity: */
-  /* box-shadow: 0 0 0 2px rgba(var(--border-color-rgb), 0.3); /* Needs --border-color-rgb */
-  /* The original suggestion using a fixed color like #3f51b5 was good. */
-  /* Let's define a custom property for the focus shadow color or use a blend. */
-  /* For simplicity and consistency, let's stick to a color derived from --text-color but ensure visibility. */
-  /* A compromise: use --text-color with a moderate opacity, ensuring it contrasts with the background. */
-  /* This might require defining specific shadow colors per theme. */
-  /* For now, let's use the --text-color itself with some alpha, acknowledging it might be subtle. */
-  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Generic */
-  /* Let's try using the --btn-hover-bg-color which is usually high contrast */
-  /* box-shadow: 0 0 0 2px rgba(53, 53, 53, 0.3); /* Original button hover */
-  /* In dark mode, --btn-hover-bg-color is white. rgba(255, 255, 255, 0.3) on dark bg is visible. */
-  /* In light mode, --btn-hover-bg-color is white. rgba(255, 255, 255, 0.3) on light bg is not visible. */
-  /* Let's try --btn-hover-text-color */
-  /* In dark mode, --btn-hover-text-color is black. rgba(0, 0, 0, 0.3) on dark bg is not visible. */
-  /* In light mode, --btn-hover-text-color is black. rgba(0, 0, 0, 0.3) on light bg is visible. */
-  /* Let's try --nav-link-color */
-  /* In dark mode, --nav-link-color is white. rgba(255, 255, 255, 0.3) on dark bg is visible. */
-  /* In light mode, --nav-link-color is black. rgba(0, 0, 0, 0.3) on light bg is visible. */
-  /* This seems like a good candidate. */
-  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Let's revert to the simple one for now, as --nav-link-color is similar to --text-color. */
-  /* The initial simple rgba(0,0,0, 0.1) or rgba(255,255,255, 0.1) based on --text-color might be best. */
-  /* In light mode: --text-color is #000 (black). rgba(0, 0, 0, 0.1) is a dark grey shadow. Visible on light bg. */
-  /* In dark mode: --text-color is #fff (white). rgba(255, 255, 255, 0.1) is a light grey shadow. Visible on dark bg. */
-  /* This is the best generic approach without defining new variables. */
-  /* So, the line above stands: */
-  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* This works as rgba(0,0,0, 0.1) in dark mode becomes rgba(255,255,255, 0.1) implicitly if --text-color is used as the base, but it doesn't. */
-  /* We need a shadow color that's the opposite of the background. --text-color is that. */
-  /* Let's use: */
-  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* This is fixed. */
-  /* To make it theme-aware, we need a new variable or use --text-color. */
-  /* Let's define a --focus-shadow-color in :root and dark-mode. */
-  /* However, CSS variables cannot be used directly inside rgba(). */
-  /* The best way is to define the full color in the variable. */
-  /* :root { --focus-shadow-color: rgba(0, 0, 0, 0.2); } */
-  /* body.dark-mode { --focus-shadow-color: rgba(255, 255, 255, 0.2); } */
-  /* Then: box-shadow: 0 0 0 2px var(--focus-shadow-color); */
-  /* Let's add these variables and use them. */
-  /* Define in :root and body.dark-mode */
-  /* :root { --focus-shadow-color: rgba(0, 0, 0, 0.1); } */
-  /* body.dark-mode { --focus-shadow-color: rgba(255, 255, 255, 0.1); } */
-  /* Then apply: */
-  /* box-shadow: 0 0 0 2px var(--focus-shadow-color); */
-  /* Let's add these variables to the :root and body.dark-mode blocks. */
-  /* :root {
-    ...
-    --focus-shadow-color: rgba(0, 0, 0, 0.1); /* Default for light mode */
-  /* }
-  /* body.dark-mode {
-    ...
-    --focus-shadow-color: rgba(255, 255, 255, 0.1); /* For dark mode */
-  /* }
-  /* Then use it here: */
-  /* box-shadow: 0 0 0 2px var(--focus-shadow-color); */
-  /* This requires updating the :root and body.dark-mode blocks above. */
-  /* Let's add the variable definition here first, then update the blocks. */
-  /* It's better to define it in the CSS variables section. */
-  /* Let's update the :root and body.dark-mode blocks first: */
-  /* :root {
-    --background-color: #fff;
-    --text-color: #000;
-    --section-background-color: rgb(250, 250, 250);
-    --border-color: rgb(163, 163, 163);
-    --nav-link-color: #000;
-    --nav-link-hover-color: grey;
-    --btn-text-color: #000;
-    --btn-border-color: rgb(53, 53, 53);
-    --btn-hover-text-color: #fff;
-    --btn-hover-bg-color: rgb(53, 53, 53);
-    --navbar-scrolled-bg: rgba(255, 255, 255, 0.9);
-    --focus-shadow-color: rgba(0, 0, 0, 0.1); /* Focus shadow for light mode
-  /* }
-  /* body.dark-mode {
-    --background-color: #121212;
-    --text-color: #fff;
-    --section-background-color: #333;
-    --border-color: #555;
-    --nav-link-color: #fff;
-    --nav-link-hover-color: #bbb;
-    --btn-text-color: #fff;
-    --btn-border-color: #fff;
-    --btn-hover-text-color: #000;
-    --btn-hover-bg-color: #fff;
-    --navbar-scrolled-bg: rgba(18, 18, 18, 0.9);
-    --focus-shadow-color: rgba(255, 255, 255, 0.1); /* Focus shadow for dark mode
-  /* }
-  /* Now we can use it: */
   box-shadow: 0 0 0 2px var(--focus-shadow-color);
-}
-/* Define the focus shadow color variable in the root and dark mode */
-:root {
-  --focus-shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode focus */
-}
-body.dark-mode {
-  --focus-shadow-color: rgba(255, 255, 255, 0.1); /* Subtle shadow for dark mode focus */
 }
 
 /* Style for the select element specifically */
