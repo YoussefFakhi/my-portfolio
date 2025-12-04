@@ -412,7 +412,7 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
 #professional-experience .timeline-line {
   position: absolute;
   top: 150px;
-  bottom: 0;
+  bottom: 59px;
   left: 50%;
   width: 2px;
   background: linear-gradient(to bottom, var(--btn-hover-bg-color), var(--btn-hover-text-color), var(--btn-hover-bg-color));
@@ -573,13 +573,29 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
 
 #professional-experience .availability-banner {
   text-align: center;
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: var(--btn-hover-bg-color);
-  color: var(--btn-hover-text-color);
+  margin: 2rem auto;
+  padding: 1rem 2rem;
   border-radius: 1rem;
   font-size: 1.1rem;
   font-weight: 500;
+  width: fit-content;
+  min-width: 300px;
+  max-width: 90%;
+
+  /* Background uses the hover bg color */
+  background-color: var(--btn-hover-bg-color);
+}
+
+/* ✅ Explicitly apply theme-aware text color to all text inside */
+#professional-experience .availability-banner,
+#professional-experience .availability-banner p,
+#professional-experience .availability-banner strong {
+  color: var(--btn-hover-text-color);
+}
+
+/* Optional: make strong slightly bolder */
+#professional-experience .availability-banner strong {
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1024px) {
