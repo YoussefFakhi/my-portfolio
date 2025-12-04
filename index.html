@@ -8,7 +8,7 @@
 <meta name="keywords" content="Youssef Fakhi, Abolfazl, Shadrouh, ابوالفضل شادروح, ابوالفضل, شادروح, Youssef Fakhi, abolfazl shadrooh, shadrooh">
 <meta name="description" content="Youssef Fakhi's personal page and portfolio, specifications and documents">
 <title>Youssef Fakhi</title>
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.11/dist/lenis.css  ">
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.11/dist/lenis.css    ">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="mediaqueries.css">
@@ -27,8 +27,9 @@
 <div class="header">
 <ul class="nav-links nav-items">
 <li><a href="#about" id="about-fa">About</a></li>
-<li><a href="#experience" id="experience-fa">Experience</a></li>
-<li><a href="#testimonials" id="testimonials-fa">Testimonials</a> <!-- Add link to nav -->
+<li><a href="#experience" id="experience-fa">Skills</a></li>
+<!-- Testimonials link replaced with Professional Experience -->
+<li><a href="#professional-experience" id="experience-fa">Experience</a></li>
 <li><a href="#projects" id="projects-fa">Projects</a></li>
 <li><a href="#contact" id="contact-fa">Contact</a></li>
 <li class="language-dropdown">
@@ -46,7 +47,7 @@
 </nav>
 <!-- Mobile Navigation -->
 <nav id="hamburger-nav">
-<img id="hamburger-logo" src="assets/logo_black.png" class="logo logo1" alt="Logo" loading="lazy" decoding="async"> <!-- Add logo image to mobile nav -->
+<img id="hamburger-logo" src="assets/logo_black.png" class="logo logo1" alt="Logo" loading="lazy" decoding="async">
 <div class="hamburger-menu">
 <div class="hamburger-icon" onclick="toggleMenu()">
 <span></span>
@@ -55,8 +56,9 @@
 </div>
 <ul class="menu-links">
 <li><a href="#about" onclick="toggleMenu()" id="about-fa-m">About</a></li>
-<li><a href="#experience" onclick="toggleMenu()" id="experience-fa-m">Experience</a></li>
-<li><a href="#testimonials" onclick="toggleMenu()" id="testimonials-fa-m">Testimonials</a></li> <!-- Add link to mobile nav -->
+<li><a href="#experience" onclick="toggleMenu()" id="experience-fa-m">Skills</a></li>
+<!-- Testimonials mobile link replaced -->
+<li><a href="#professional-experience" onclick="toggleMenu()" id="experience-fa-m">Experience</a></li>
 <li><a href="#projects" onclick="toggleMenu()" id="projects-fa-m">Projects</a></li>
 <li><a href="#contact" onclick="toggleMenu()" id="contact-fa-m">Contact</a></li>
 <li class="language-mobile">
@@ -69,6 +71,7 @@
 </ul>
 </div>
 </nav>
+
 <!-- Profile Section -->
 <section id="profile">
 <div class="section__pic-container">
@@ -84,6 +87,7 @@
 </div>
 </div>
 </section>
+
 <!-- About Section -->
 <section id="about">
 <p class="section__text__p1 reveal delay-1" id="about-p1">Get To Know More</p>
@@ -116,10 +120,11 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 </div>
 </div>
 </div>
-<img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#experience'" loading="lazy" decoding="async">
+<!-- Arrow now points to #professional-experience -->
+<img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#professional-experience'" loading="lazy" decoding="async">
 </section>
-<!-- Experience Section -->
-<!-- Experience Section -->
+
+<!-- Skills Section (formerly labeled "Experience") -->
 <section id="experience">
   <p class="section__text__p1 reveal delay-1" id="exp-p1">Explore My</p>
   <h1 class="title reveal delay-2" id="exp-title">Skills</h1>
@@ -157,28 +162,18 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
             <img src="assets/icons8-material-ui.svg" alt="Material UI Logo" class="skill-logo">
             <span class="skill-name">Material UI</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/icons8-ShadCN-UI.svg" alt="ShadCN UI Logo" class="skill-logo">
             <span class="skill-name">ShadCN UI</span>
           </div>
-
-
           <div class="skill-item">
             <img src="assets/icons8-typescript.svg" alt="Typescript Logo" class="skill-logo">
             <span class="skill-name">Typescript</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/icons8-vite.svg" alt="Vite Logo" class="skill-logo">
             <span class="skill-name">Vite</span>
           </div>
-
-          <!-- <div class="skill-item">
-            <img src="assets/" alt=" Logo" class="skill-logo">
-            <span class="skill-name"></span>
-          </div> -->
-
         </div>
       </div>
 
@@ -202,24 +197,14 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
             <img src="assets/icons8-express-js.svg" alt="Express.js Logo" class="skill-logo">
             <span class="skill-name">Express.js</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/icons8-jwt.svg" alt="JWT Logo" class="skill-logo">
             <span class="skill-name">JWT</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/passportJS-300x300.png" alt="Passport.js Logo" class="skill-logo">
             <span class="skill-name">Passport.js</span>
           </div>
-
-          
-          <!-- 
-          <div class="skill-item">
-            <img src="assets/" alt=" Logo" class="skill-logo">
-            <span class="skill-name"></span>
-          </div>
-           -->
           <div class="skill-item">
             <img src="assets/webrtc-svgrepo-com.svg" alt="webrtc Logo" class="skill-logo">
             <span class="skill-name">WebRTC</span>
@@ -243,7 +228,6 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
             <img src="assets/icons8-mongodb.svg" alt="MongoDB Logo" class="skill-logo">
             <span class="skill-name">MongoDB</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/icons8-supabase.svg" alt="Supabase Logo" class="skill-logo">
             <span class="skill-name">Supabase</span>
@@ -271,80 +255,141 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
             <img src="assets/postman.svg" alt="Postman Logo" class="skill-logo">
             <span class="skill-name">Postman</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/docker.svg" alt="Docker Logo" class="skill-logo">
             <span class="skill-name">Docker</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/vercel-logo-svgrepo-com.svg" alt="Vercel Logo" class="skill-logo">
             <span class="skill-name">Vercel</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/netlify-svgrepo-com.svg" alt="Netlify Logo" class="skill-logo">
             <span class="skill-name">Netlify</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/insomnia-svgrepo-com.svg" alt="Insomnia Logo" class="skill-logo">
             <span class="skill-name">Insomnia</span>
           </div>
-
           <div class="skill-item">
             <img src="assets/npm.svg" alt="NPM Logo" class="skill-logo">
             <span class="skill-name">NPM</span>
           </div>
-
-          <!-- <div class="skill-item">
-            <img src="assets/" alt=" Logo" class="skill-logo">
-            <span class="skill-name"></span>
-          </div> -->
-
         </div>
       </div>
     </div>
   </div>
-  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#testimonials'" loading="lazy">
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#professional-experience'" loading="lazy">
 </section>
-<!-- Testimonials Section -->
-<section id="testimonials">
-    <p class="section__text__p1 reveal delay-1" id="testimonials-p1">What People Say</p>
-    <h1 class="title reveal delay-2" id="testimonials-title">Testimonials</h1>
-    <div class="experience-details-container">
-        <div class="about-containers">
-            <!-- Testimonial 1 -->
-            <div class="details-container color-container reveal delay-3">
-                <div class="testimonial-content">
-                    <p id="testimonial-text-1">"Youssef is an exceptional developer. His attention to detail and problem-solving skills were crucial to the success of our project. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <span id="testimonial-author-1">- Client</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Testimonial 2 -->
-            <div class="details-container color-container reveal delay-4">
-                <div class="testimonial-content">
-                    <p id="testimonial-text-2">"Working with Youssef was a pleasure. He delivered high-quality code on time and was a great team player."</p>
-                    <div class="testimonial-author">
-                        <span id="testimonial-author-2">- Colleague</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Testimonial 3 -->
-            <div class="details-container color-container reveal delay-5">
-                <div class="testimonial-content">
-                    <p id="testimonial-text-3">"His technical expertise and dedication are impressive. Youssef consistently produces excellent results."</p>
-                    <div class="testimonial-author">
-                        <span id="testimonial-author-3">- Manager</span>
-                    </div>
-                </div>
-            </div>
+
+<!-- Professional Experience Section (replaces Testimonials) -->
+<section id="professional-experience">
+  <p class="section__text__p1 reveal delay-1" id="exp-p1">My</p>
+  <h1 class="title reveal delay-2" id="exp-title">Professional Experience</h1>
+
+  <!-- Timeline Line -->
+  <div class="timeline-line"></div>
+
+  <!-- Experience Cards Container -->
+  <div class="experience-cards-container">
+
+    <!-- Experience Card 1 -->
+    <div class="experience-card reveal delay-3">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <img src="assets/html.svg" alt="HTML5 Icon" class="icon">
+          </div>
+          <div class="position-company">
+            <h3 class="position">Développeur Full-Stack</h3>
+            <p class="company">Ark-X Talent Solutions</p>
+          </div>
+          <span class="period">Stage / Formation</span>
         </div>
+        <ul class="description-list">
+          <li>Développement d'interfaces utilisateur avec React.js</li>
+          <li>Intégration d'APIs backend et gestion de l'état</li>
+          <li>Collaboration en méthode agile avec l'équipe</li>
+          <li>Participation aux revues de code et bonnes pratiques</li>
+        </ul>
+      </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-6" onclick="location.href='./#projects'" loading="lazy"> <!-- Arrow to Projects -->
+
+    <!-- Experience Card 2 -->
+    <div class="experience-card reveal delay-4">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <img src="assets/icons8-javascript.svg" alt="JavaScript Icon" class="icon">
+          </div>
+          <div class="position-company">
+            <h3 class="position">Développeur Web</h3>
+            <p class="company">MTIS (My Tech Innovative Solutions)</p>
+          </div>
+          <span class="period">Stage</span>
+        </div>
+        <ul class="description-list">
+          <li>Conception et développement de solutions web</li>
+          <li>Maintenance et amélioration d'applications existantes</li>
+          <li>Travail en équipe sur des projets clients</li>
+          <li>Utilisation de technologies modernes (React, Laravel)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience Card 3 -->
+    <div class="experience-card reveal delay-5">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <img src="assets/icons8-react.svg" alt="React Icon" class="icon">
+          </div>
+          <div class="position-company">
+            <h3 class="position">Stagiaire Développeur</h3>
+            <p class="company">Préfecture de Mohammedia</p>
+          </div>
+          <span class="period">Stage</span>
+        </div>
+        <ul class="description-list">
+          <li>Support technique et développement d'outils internes</li>
+          <li>Participation à des projets de digitalisation</li>
+          <li>Rédaction de documentation technique</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience Card 4 -->
+    <div class="experience-card reveal delay-6">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="icon-wrapper">
+            <img src="assets/icons8-react.svg" alt="React Icon" class="icon">
+          </div>
+          <div class="position-company">
+            <h3 class="position">Stagiaire</h3>
+            <p class="company">Groupe Scolaire Jules Ferry</p>
+          </div>
+          <span class="period">Stage</span>
+        </div>
+        <ul class="description-list">
+          <li>Initiation au développement web dans un contexte éducatif</li>
+          <li>Création de supports pédagogiques numériques</li>
+          <li>Découverte des besoins métiers en gestion scolaire</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Availability Banner -->
+  <div class="availability-banner">
+    <p>💼 Disponible pour <strong>freelance</strong>, <strong>CDI</strong> ou <strong>missions</strong></p>
+  </div>
+
+  <!-- Arrow to Projects -->
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-7" onclick="location.href='./#projects'" loading="lazy">
 </section>
+
 <!-- Projects Section -->
 <section id="projects">
 <p class="section__text__p1 reveal delay-1" id="projects-p1">Browse My Recent</p>
@@ -358,7 +403,6 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 </div>
 <h2 class="experience-sub-title project-title reveal delay-4" id="project-1">Modern E-commerce Template</h2>
 <div class="btn-container reveal delay-5">
-    <!-- Changed onclick to data-project and data-action -->
     <button class="btn btn-color-2 project-btn" data-project="1" data-action="view">View</button>
     <button class="btn btn-color-2 project-btn" data-project="1" data-action="about">About</button>
 </div>
@@ -389,6 +433,7 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 </div>
 <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow reveal delay-12" onclick="location.href='./#contact'" loading="lazy">
 </section>
+
 <!-- Contact Section -->
 <section id="contact">
 <p class="section__text__p1 reveal delay-1" id="contact-p1">Get in Touch</p>
@@ -403,7 +448,6 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 <label for="email">Email</label>
 <input type="email" id="email" name="_replyto" required>
 </div>
-<!-- NEW: Inquiry Type Dropdown -->
 <div class="form-group reveal delay-5">
     <label for="inquiry-type">Inquiry Type</label>
     <select id="inquiry-type" name="inquiry_type" required>
@@ -421,6 +465,7 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 </form>
 </div>
 </section>
+
 <!-- Footer -->
 <footer>
 <p id="footer-en" class="copyright">Copyright © 2025 Youssef Fakhi. All Rights Reserved.</p>
@@ -454,6 +499,6 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 </div>
 
 <script src="script.js" defer></script>
-<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js  "></script>
+<script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js    "></script>
 </body>
 </html>
