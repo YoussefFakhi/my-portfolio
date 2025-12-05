@@ -400,6 +400,237 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   font-size: 1.1rem; /* Adjust size as needed */
   flex-grow: 1; /* Allow name to take remaining space */
 }
+/* PROFESSIONAL EXPERIENCE SECTION */
+#professional-experience {
+  position: relative;
+  padding-top: 4vh;
+  min-height: fit-content;
+  margin-top: 10vh;
+  height: fit-content;
+}
+
+#professional-experience .timeline-line {
+  position: absolute;
+  top: 150px;
+  bottom: 59px;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--btn-hover-bg-color), var(--btn-hover-text-color), var(--btn-hover-bg-color));
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+#professional-experience .experience-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+#professional-experience .experience-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+  #professional-experience .experience-card:nth-child(odd) {
+    justify-content: flex-end;
+    padding-right: 2rem;
+  }
+  #professional-experience .experience-card:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
+}
+
+#professional-experience .card-content {
+  background-color: var(--section-background-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+  border: var(--border-color) 0.1rem solid;
+}
+
+#professional-experience .card-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to bottom right, var(--btn-hover-bg-color), var(--btn-hover-text-color));
+  opacity: 0.2;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: -1;
+}
+
+#professional-experience .card-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(to top right, var(--btn-hover-text-color), var(--btn-hover-bg-color));
+  opacity: 0.2;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  z-index: -1;
+}
+
+#professional-experience .card-header {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#professional-experience .icon-wrapper {
+  position: relative;
+}
+
+#professional-experience .icon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+#professional-experience .position-company {
+  flex-grow: 1;
+}
+
+#professional-experience .position {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+#professional-experience .company {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--btn-hover-bg-color);
+  margin: 0;
+}
+
+#professional-experience .period {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--btn-hover-bg-color);
+  color: var(--btn-hover-text-color);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+#professional-experience .description-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#professional-experience .description-list li {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+#professional-experience .description-list li::before {
+  content: '•';
+  color: var(--btn-hover-bg-color);
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+#professional-experience .experience-card:hover .card-content {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#professional-experience .experience-card:hover .icon {
+  transform: scale(1.1);
+}
+
+#professional-experience .availability-banner {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: fit-content;
+  min-width: 300px;
+  max-width: 90%;
+
+  /* Background uses the hover bg color */
+  background-color: var(--btn-hover-bg-color);
+}
+
+/* ✅ Explicitly apply theme-aware text color to all text inside */
+#professional-experience .availability-banner,
+#professional-experience .availability-banner p,
+#professional-experience .availability-banner strong {
+  color: var(--btn-hover-text-color);
+}
+
+/* Optional: make strong slightly bolder */
+#professional-experience .availability-banner strong {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  #professional-experience .timeline-line {
+    display: none;
+  }
+
+  #professional-experience .experience-cards-container {
+    margin-top: 1rem;
+  }
+
+  #professional-experience .experience-card {
+    justify-content: center;
+    padding: 0;
+  }
+
+  #professional-experience .card-content {
+    max-width: 100%;
+  }
+
+  #professional-experience .card-header {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  #professional-experience .icon-wrapper,
+  #professional-experience .position-company {
+    width: 100%;
+  }
+
+  #professional-experience .period {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+}
 
 /* TESTIMONIALS SECTION */
 #testimonials {
