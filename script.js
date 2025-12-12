@@ -301,7 +301,7 @@ const translations = {
     view_fa: "View",
     about_fa_a: "About",
     project_1: "Modern E-commerce Template",
-    project_2: "Cafe Menu App",
+    project_2: "Digital Gaming Marketplace",
     project_3: "Digital academic management system",
     // Testimonials Translations
     testimonials_fa: "Testimonials",
@@ -585,16 +585,22 @@ const projectData = {
     ]
   },
   2: {
-    title: "Cafe Menu App",
-    description: "A digital menu for cafes with category filtering and responsive layout. Built using React and styled with Material UI.",
-    tech: ["React", "Material UI", "JavaScript", "CSS"],
-    github: "https://github.com/abolfazl-shadrouh/cafe-menu",
-    demo: "https://abolfazl-shadrouh.github.io/cafe-menu",
+    title: "Digital Gaming Marketplace",
+    description: "A modern gaming e-commerce platform with category filtering, shopping cart, and secure checkout. Built with React and Laravel.",
+    tech: ["React", "Laravel", "React Router", "Tailwind CSS","React Router", "RESTful API"],
+    github: "https://github.com/YoussefFakhi/YosGames-game-store",
+    demo: null,  // no live demo
     images: [
-      "assets/project-2.png", // Example: first image
-      // Add more image paths as needed
-      // "assets/project-2-screenshot-2.png",
-      // "assets/project-2-screenshot-3.png",
+      "assets/YosGames/a1.png", 
+      "assets/YosGames/a2.png", 
+      "assets/YosGames/a3.png", 
+      "assets/YosGames/a4.png", 
+      "assets/YosGames/a5.png", 
+      "assets/YosGames/a7.png", 
+      "assets/YosGames/a9.png", 
+      "assets/YosGames/a10.png", 
+      "assets/YosGames/a11.png", 
+      "assets/YosGames/a12.png", 
     ]
   },
   3: {
