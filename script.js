@@ -587,7 +587,7 @@ const projectData = {
     "Stripe",
     "Tailwind CSS"
   ],
-    github: "https://github.com/abolfazl-shadrouh/modern-ecommerce-template",
+    github: "https://github.com/YoussefFakhi/TechSwap-Readme.git",
     demo: null, // no live demo
     images: [
   "assets/TechSwap/landing-page.png",

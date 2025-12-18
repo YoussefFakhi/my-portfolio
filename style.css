@@ -1309,3 +1309,18 @@ body.dark-mode .modal-content {
     align-self: flex-start; /* Align author to the left on mobile */
   }
 }
+/* Mobile Spacing Fixes */
+@media screen and (max-width: 600px) {
+  #projects {
+    padding-bottom: 10rem;
+  }
+  
+  #contact {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+  
+  footer {
+    padding-top: 10rem;
+  }
+}
