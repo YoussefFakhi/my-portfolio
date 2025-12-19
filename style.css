@@ -171,6 +171,8 @@ a:hover {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  min-height: 70px; /* matches #hamburger-nav height */
+
 }
 .hamburger-icon {
   display: flex;
@@ -189,27 +191,32 @@ a:hover {
 .menu-links {
   position: absolute;
   top: 100%;
-  right: 0;
+  right: 5vw;
+  width: 90vw;
   background-color: var(--background-color);
-  width: fit-content;
-  max-height: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  z-index: 1000; /* Ensure it appears above other content */
-}
-/* Style for the open state - increased max-height and added scrolling */
-.menu-links.open {
-  max-height: 60vh; /* Increased height */
-  overflow-y: auto; /* Allow scrolling if content exceeds max-height */
-  padding: 1.25rem 0; /* Add padding for better spacing */
-  /* Center the list items within the menu container */
+  max-height: 0;
+  padding: 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    max-height 0.35s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease,
+    visibility 0.35s ease;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90vw; /* Make it wider: 90% of screen width */
-  right: 5vw; /* Center it: (100% - 90vw) / 2 = 5vw margin on each side */
-  border-radius: 12px; /* Optional: round corners for modern look */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Optional: subtle shadow */
+}
+/* Style for the open state - increased max-height and added scrolling */
+.menu-links.open {
+  max-height: 60vh; /* Must be >= actual content height */
+  opacity: 1;
+  visibility: visible;
+  padding: 1.25rem 0;
 }
 .menu-links a {
   display: block;

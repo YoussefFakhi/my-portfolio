@@ -16,15 +16,28 @@ window.addEventListener('click', function(e) {
 //§°
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
+  const backdrop = document.getElementById('mobile-menu-backdrop');
   if (!menu) return;
 
   const isOpen = menu.classList.contains('open');
-  
+
   if (isOpen) {
+    // Close: animate out
     menu.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('show');
     document.body.style.overflow = '';
+
+    // Optional: remove backdrop from DOM after animation
+    setTimeout(() => {
+      if (backdrop) backdrop.classList.add('hidden');
+    }, 300);
   } else {
+    // Open
     menu.classList.add('open');
+    if (backdrop) {
+      backdrop.classList.remove('hidden');
+      setTimeout(() => backdrop.classList.add('show'), 10);
+    }
     document.body.style.overflow = 'hidden';
   }
 }
