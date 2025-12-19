@@ -16,30 +16,15 @@ window.addEventListener('click', function(e) {
 //§°
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
-  const icon = document.querySelector(".hamburger-icon");
-  const backdrop = document.getElementById('mobile-menu-backdrop');
-
-  if (!menu || !icon) return;
+  if (!menu) return;
 
   const isOpen = menu.classList.contains('open');
-
+  
   if (isOpen) {
-    // Close menu
     menu.classList.remove('open');
-    icon.classList.remove('open');
-    if (backdrop) {
-      backdrop.classList.remove('show');
-      setTimeout(() => backdrop.classList.add('hidden'), 250);
-    }
     document.body.style.overflow = '';
   } else {
-    // Open menu
     menu.classList.add('open');
-    icon.classList.add('open');
-    if (backdrop) {
-      backdrop.classList.remove('hidden');
-      setTimeout(() => backdrop.classList.add('show'), 10);
-    }
     document.body.style.overflow = 'hidden';
   }
 }
