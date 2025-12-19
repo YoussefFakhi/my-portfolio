@@ -199,21 +199,27 @@ a:hover {
 }
 /* Style for the open state - increased max-height and added scrolling */
 .menu-links.open {
-  max-height: 500px; /* Increased height */
+  max-height: 60vh; /* Increased height */
   overflow-y: auto; /* Allow scrolling if content exceeds max-height */
-  padding: 10px 0; /* Add padding for better spacing */
+  padding: 1.25rem 0; /* Add padding for better spacing */
   /* Center the list items within the menu container */
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90vw; /* Make it wider: 90% of screen width */
+  right: 5vw; /* Center it: (100% - 90vw) / 2 = 5vw margin on each side */
+  border-radius: 12px; /* Optional: round corners for modern look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Optional: subtle shadow */
 }
 .menu-links a {
   display: block;
-  padding: 10px; /* Add padding for easier tapping */
+  padding: 14px 20px; /* Increased padding for better touch target */
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem; /* Slightly larger text */
   color: var(--nav-link-color);
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
+  width: 100%; /* Fill container width */
+  box-sizing: border-box;
 }
 .menu-links li {
   list-style: none;
