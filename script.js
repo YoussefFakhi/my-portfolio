@@ -13,12 +13,37 @@ window.addEventListener('click', function(e) {
 // ===========================
 // TOGGLE HAMBURGER MENU
 // ===========================
+//§°
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
-  menu.classList.toggle("open");
-  icon.classList.toggle("open");
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+
+  if (!menu || !icon) return;
+
+  const isOpen = menu.classList.contains('open');
+
+  if (isOpen) {
+    // Close menu
+    menu.classList.remove('open');
+    icon.classList.remove('open');
+    if (backdrop) {
+      backdrop.classList.remove('show');
+      setTimeout(() => backdrop.classList.add('hidden'), 250);
+    }
+    document.body.style.overflow = '';
+  } else {
+    // Open menu
+    menu.classList.add('open');
+    icon.classList.add('open');
+    if (backdrop) {
+      backdrop.classList.remove('hidden');
+      setTimeout(() => backdrop.classList.add('show'), 10);
+    }
+    document.body.style.overflow = 'hidden';
+  }
 }
+//§°
 
 // ===========================
 // THEME SWITCHER & LOGO HANDLER
@@ -140,6 +165,51 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+//§°
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector(".menu-links");
+  const icon = document.querySelector(".hamburger-icon");
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+  const isClickInsideMenu = menu && menu.contains(e.target);
+  const isClickOnHamburger = icon && icon.contains(e.target);
+
+  if (menu && menu.classList.contains('open') && !isClickInsideMenu && !isClickOnHamburger) {
+    menu.classList.remove('open');
+    icon.classList.remove('open');
+    if (backdrop) {
+      backdrop.classList.remove('show');
+      setTimeout(() => backdrop.classList.add('hidden'), 250);
+    }
+    document.body.style.overflow = '';
+  }
+});
+//§°
+
+//§°
+// Close mobile menu on scroll
+let isThrottled = false;
+window.addEventListener('scroll', () => {
+  if (isThrottled) return;
+  const menu = document.querySelector(".menu-links");
+  const icon = document.querySelector(".hamburger-icon");
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+
+  if (menu && menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    icon?.classList.remove('open');
+    if (backdrop) {
+      backdrop.classList.remove('show');
+      setTimeout(() => backdrop.classList.add('hidden'), 250);
+    }
+    document.body.style.overflow = '';
+  }
+  isThrottled = true;
+  setTimeout(() => isThrottled = false, 200); // throttle to avoid excessive calls
+});
+//§°
+
+
 
   initActiveSectionIndicator();
 });
