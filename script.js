@@ -72,49 +72,75 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isDarkMode) {
     body.classList.add('dark-mode');
     updateThemeIcon(true);
-    updateLogo(true); // Set initial logo for dark mode
+    updateLogo(true);
   } else {
     body.classList.remove('dark-mode');
     updateThemeIcon(false);
-    updateLogo(false); // Set initial logo for light mode
+    updateLogo(false);
   }
 
-  // Apply language translations after DOM content is loaded
   const savedLang = localStorage.getItem("language") || "en";
   applyLanguage(savedLang);
 
-  // Reveal elements initially (in case the page loads scrolled)
   revealElements();
-
-  // Initial check for navbar scroll effect
   handleNavbarScroll();
 
-  // Initialize Lenis smooth scrolling if the library is loaded
   if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      lerp: 0.070,
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    const lenis = new Lenis({ lerp: 0.070, smoothWheel: true });
+    const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
   } else {
-    console.warn("Lenis library not found. Smooth scrolling will not be active.");
+    console.warn("Lenis library not found.");
   }
 
-  // Handle the loading spinner fade-out
   handleLoadingSpinner();
-
-  // Handle contact form submission
   handleContactForm();
-
-  // Handle project modal and slideshow
   handleProjectModal();
 
-  // Initialize active section indicator
+  // ✅ CV Modal Handler
+  const modal = document.getElementById('cv-modal');
+  const openBtn = document.getElementById('resume-btn');
+
+  if (modal && openBtn) {
+    const closeBtn = modal.querySelector('.cv-close-btn');
+    const focusableElements = modal.querySelectorAll('a, button, [tabindex]');
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    const openModal = () => {
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.add('show'), 10);
+      document.body.style.overflow = 'hidden';
+      if (firstFocusable) firstFocusable.focus();
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      setTimeout(() => modal.classList.add('hidden'), 250);
+    };
+
+    openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    });
+  }
+
   initActiveSectionIndicator();
 });
 

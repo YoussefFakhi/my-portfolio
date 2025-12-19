@@ -438,6 +438,111 @@ body:not(.dark-mode) .btn-container .btn-color-1:hover {
   margin: 0 auto;
   position: relative;
 }
+/* Compact CV Modal */
+#cv-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+#cv-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cv-modal-content {
+  background: var(--background-color);
+  color: var(--text-color);
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 320px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+}
+
+#cv-modal.show .cv-modal-content {
+  transform: scale(1);
+}
+
+.cv-modal-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-color);
+}
+
+.cv-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cv-btn {
+  display: block;
+  padding: 0.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  background: var(--btn-hover-bg-color);
+  color: var(--btn-hover-text-color);
+  transition: all 0.2s ease;
+  border: 1px solid var(--btn-hover-bg-color);
+}
+
+.cv-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cv-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.cv-close-btn:hover,
+.cv-close-btn:focus {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .cv-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Focus visibility for accessibility */
+.cv-close-btn:focus,
+.cv-btn:focus {
+  outline: 2px solid var(--btn-hover-bg-color);
+  outline-offset: 2px;
+}
 
 @media screen and (min-width: 1024px) {
   #professional-experience .experience-card:nth-child(odd) {

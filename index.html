@@ -84,7 +84,7 @@
 <h1 class="title reveal delay-3" id="intro-title">Youssef Fakhi</h1>
 <p class="section__text__p2 reveal delay-4" id="intro-p2">Full Stack Developer</p>
 <div class="btn-container reveal delay-5">
-<button class="btn btn-color-2" onclick="window.open('./assets/cv.pdf')" id="button1-fa">Resume</button>
+<button class="btn btn-color-2" id="resume-btn">Resume</button>
 <button class="btn btn-color-1" onclick="location.href='./#contact'" id="button2-fa">Contact Us</button>
 </div>
 </div>
@@ -460,5 +460,18 @@ My goal is to grow as a specialized full-stack developer and contribute to impac
 
 <script src="script.js" defer></script>
 <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js    "></script>
+
+<!-- CV Language Selection Modal (Compact) -->
+<div id="cv-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+  <div class="cv-modal-content">
+    <button class="cv-close-btn" aria-label="Close CV selection">&times;</button>
+    <h2 id="cv-modal-title">Choose your CV</h2>
+    <div class="cv-btn-group">
+      <a href="./assets/cv-a.pdf" target="_blank" class="cv-btn">English</a>
+      <a href="./assets/cv-f.pdf" target="_blank" class="cv-btn">Français</a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
