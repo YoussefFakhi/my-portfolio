@@ -171,7 +171,6 @@ a:hover {
 .hamburger-menu {
   position: relative;
   display: inline-block;
-  min-height: 70px; /* matches #hamburger-nav height */
 
 }
 .hamburger-icon {
