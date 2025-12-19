@@ -162,7 +162,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  }
+   //ì'
+    // Close hamburger menu on scroll
+  window.addEventListener('scroll', () => {
+    const menu = document.querySelector('.menu-links');
+    const icon = document.querySelector('.hamburger-icon');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+
+    if (menu && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      icon?.classList.remove('open');
+      if (backdrop) {
+        backdrop.classList.remove('show');
+        setTimeout(() => backdrop.classList.add('hidden'), 250);
+      }
+      document.body.style.overflow = '';
+    }
+  }, { passive: true }); // improves scroll performance
+  //ì'
+}
+
 //§°
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
