@@ -89,9 +89,11 @@ function updateLogo(isDarkMode) {
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
 
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  const isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
+  // ✅ UPDATED LOGIC:
+  // We ONLY check if savedTheme is explicitly 'dark'.
+  // If savedTheme is 'light' or null (new user), we default to Light Mode.
+  // We IGNORE the system preference (prefers-color-scheme) for new users.
+  const isDarkMode = savedTheme === 'dark';
 
   if (isDarkMode) {
     body.classList.add('dark-mode');
@@ -653,7 +655,7 @@ function handleContactForm() {
     const json = JSON.stringify(object);
 
     try {
-      const response = await fetch('https://formspree.io/f/mldveqrd', { // Ensure this URL is correct
+      const response = await fetch('https://formspree.io/f/mldveqrd  ', { // Ensure this URL is correct
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -701,7 +703,7 @@ const projectData = {
     "Stripe",
     "Tailwind CSS"
   ],
-    github: "https://github.com/YoussefFakhi/TechSwap-Readme.git",
+    github: "https://github.com/YoussefFakhi/TechSwap-Readme.git  ",
     demo: null, // no live demo
     images: [
   "assets/TechSwap/landing-page.png",
@@ -767,7 +769,7 @@ const projectData = {
     title: "Digital Gaming Marketplace",
     description: "A modern gaming e-commerce platform with category filtering, shopping cart, and secure checkout. Built with React and Laravel.",
     tech: ["React", "Laravel", "React Router", "Tailwind CSS","React Router", "RESTful API"],
-    github: "https://github.com/YoussefFakhi/YosGames-game-store",
+    github: "https://github.com/YoussefFakhi/YosGames-game-store  ",
     demo: null,  // no live demo
     images: [
       "assets/YosGames/a1.png", 
@@ -786,8 +788,8 @@ const projectData = {
     title: "Digital academic management system",
     description: "A comprehensive university administration platform that digitizes academic workflows, student records, and administrative processes for educational institutions.",
     tech: ["Laravel", "PHP", "JavaScript","TailwindCSS"],
-    github: "https://github.com/YoussefFakhi/Apogee-UIT-Portail-Administratif",
-    // demo: "https://abolfazl-shadrouh.github.io/Calculator",
+    github: "https://github.com/YoussefFakhi/Apogee-UIT-Portail-Administratif  ",
+    // demo: "https://abolfazl-shadrouh.github.io/Calculator  ",
     demo: null, // no live demo
     images: [
       "assets/UIT/a1.png",
