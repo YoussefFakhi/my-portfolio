@@ -88,14 +88,10 @@ function updateLogo(isDarkMode) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
-  // whe replace this ligne by ligne under it 
-  // old one const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  // old one const isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
 
-  // Default to light mode unless user explicitly saved 'dark' 
-  //new
-  const isDarkMode = savedTheme === 'dark';
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  const isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
 
   if (isDarkMode) {
     body.classList.add('dark-mode');
