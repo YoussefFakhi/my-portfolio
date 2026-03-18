@@ -444,7 +444,7 @@ const translations = {
     projects_p1: "Parcourir mes récents",
     contact_title: "Contactez-moi",
     contact_p1: "Entrer en contact",
-    footer_en: "Copyright © 2025 Youssef Fakhi. Tous droits réservés.",
+    footer_en: "Copyright © 2026 Youssef Fakhi. Tous droits réservés.",
     about_en: "À propos",
     about_fa: "À propos",
     about_fa_m: "À propos",
